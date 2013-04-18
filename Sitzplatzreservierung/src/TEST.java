@@ -6,7 +6,7 @@ und wo noch nicht... Richard darf auch gerne mehrere seiner
 Namen nehemen ;)
 
 Timo
-
+-> edit aus Browser zum Testen der Fetch-Funktion
 
 
 
