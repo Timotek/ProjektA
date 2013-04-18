@@ -15,3 +15,10 @@ qqq
 
 
 */
+
+
+/*  rickbert hier
+ 
+ hab mir mal das Projekt in Eclipse geholt, funktioniert soweit..  
+ */
+
