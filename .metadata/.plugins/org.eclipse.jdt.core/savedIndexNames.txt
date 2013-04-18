@@ -1,0 +1,15 @@
+INDEX VERSION 1.126+/Users/timoluttmann/Documents/Studium/Projekt A/Repo/ProjektA/.metadata/.plugins/org.eclipse.jdt.core
+850568439.index
+2138123120.index
+2177805565.index
+2432717000.index
+3191966955.index
+545134401.index
+2441499872.index
+3622583421.index
+2725498208.index
+2384028132.index
+1128719391.index
+2428554107.index
+2303784812.index
+2303493509.index
