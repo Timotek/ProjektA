@@ -22,3 +22,5 @@ qqq
  hab mir mal das Projekt in Eclipse geholt, funktioniert soweit..  
  */
 
+
+/* schludderich ist jetzt endlich auch am start */
