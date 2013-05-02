@@ -1,0 +1,17 @@
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+
+public class HallAdmin extends JFrame{
+	
+	public static Map<String,JCheckBox> boxListe = new HashMap<>();
+	
+	public HallAdmin(){
+		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+	}
+	
+}

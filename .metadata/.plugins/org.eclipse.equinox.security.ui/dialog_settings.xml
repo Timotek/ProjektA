@@ -3,15 +3,15 @@
 	<section name="StorageLoginDialogNew">
 		<item value="525" key="DIALOG_WIDTH"/>
 		<item value="227" key="DIALOG_Y_ORIGIN"/>
-		<item value="244" key="DIALOG_HEIGHT"/>
 		<item value="349" key="DIALOG_X_ORIGIN"/>
+		<item value="244" key="DIALOG_HEIGHT"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="StorageLoginDialogOld">
 		<item value="525" key="DIALOG_WIDTH"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
-		<item value="0" key="DIALOG_X_ORIGIN"/>
 		<item value="244" key="DIALOG_HEIGHT"/>
+		<item value="0" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>

@@ -1,0 +1,23 @@
+import java.awt.GridLayout;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class HallAdmin extends JFrame{
+	
+	public static Map<String,JCheckBox> boxListe = new HashMap<>();
+	
+	public HallAdmin(){
+		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(600,600);
+		setLayout(new GridLayout(3,3));
+		JPanel row01 = new JPanel();
+		add(row01);
+		
+	}
+	
+}
