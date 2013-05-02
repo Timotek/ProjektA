@@ -22,18 +22,18 @@ public class AdminAuthentication extends JFrame{
 	
 	public AdminAuthentication(){
 		
-		//
+		
 		super("Admin Bestätigung");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(600,600);
 		setLayout(new GridLayout(10, 1));
 
-		//
+		
 		for(int i = 1; i <= 10 ; i++){
 			
 			JPanel panel = new JPanel();
 			add(panel);
-			//panel.setBorder( BorderFactory.createLineBorder( Color.black ) );
+			
 			if(i==4){
 				
 				panel.add(hint2);
@@ -52,7 +52,7 @@ public class AdminAuthentication extends JFrame{
 				
 			 
 		
-			//
+			
 		}
 	}
 	
