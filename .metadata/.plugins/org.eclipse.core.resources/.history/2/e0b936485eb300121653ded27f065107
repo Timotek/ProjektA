@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 public class Login extends JFrame{
 	
 	//Inititalisierung der Swin-Komponenten
+	
 	JLabel userLabel = new JLabel("Username");
 	JLabel passLabel = new JLabel("Password");
 	
