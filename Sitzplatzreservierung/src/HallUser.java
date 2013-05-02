@@ -65,10 +65,11 @@ public class HallUser extends JFrame{
 		}
 	}
 	
-	
+	/*
 	public static void main(String [] args){
 		
 		HallUser app = new HallUser();
 		app.setVisible(true);
 	}
+	*/
 }

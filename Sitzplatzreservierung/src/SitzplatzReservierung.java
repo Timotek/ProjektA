@@ -27,7 +27,7 @@ public class SitzplatzReservierung extends JFrame {
 		
 	}
 	
-	//Alle Sitzplätze einfügen
+	//Alle Sitzplï¿½tze einfï¿½gen
 	public void initSeats() {
 		
 		for (int i=0; i<40; i++){
@@ -44,7 +44,7 @@ public class SitzplatzReservierung extends JFrame {
 		if (allSeatsReserved == 40){
 			Object error = null;
 			JOptionPane.showMessageDialog((Component) error,
-				    "Alle Sitzplätze wurden bereits reserviert",
+				    "Alle Sitzplï¿½tze wurden bereits reserviert",
 				    "Achtung",
 				    JOptionPane.WARNING_MESSAGE);
 			System.exit(1);
@@ -173,7 +173,9 @@ public class SitzplatzReservierung extends JFrame {
 		}
 	}
 //------------------------------------------------------------------------------	
-	public static void main (String[] args) {
-		new SitzplatzReservierung();	
-	}
+	
+	//public static void main (String[] args) {
+		//new SitzplatzReservierung();	
+	//}
+	
 }
