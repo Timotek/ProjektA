@@ -1,0 +1,49 @@
+import java.awt.GridLayout;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class HallAdmin extends JFrame{
+	
+	public static Map<String,JCheckBox> seatList = new HashMap<>();
+	public static Map<String,JPanel> rowList = new HashMap<>();
+
+	
+	public HallAdmin(){
+		
+		super("Hall Overview - Admin");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(600,600);
+		setLayout(new GridLayout(3,3));
+		
+		for(int i = 1; i <= 9 ; i++){
+			
+			String row = "row"+i;
+			rowList.put(row, new JPanel());
+			add(rowList.get(row));
+			
+			
+		
+		
+			for(int j = 1; i <= 13; i++){
+				
+				String seat = "seat"+i;
+				seatList.put(seat, new JCheckBox());
+				//row.add(seatList.get(seat));
+				
+			}
+		}
+	}
+	
+	
+	
+	public static void main(String [] args){
+		
+		HallAdmin app = new HallAdmin();
+		app.setVisible(true);
+	}
+	
+}
