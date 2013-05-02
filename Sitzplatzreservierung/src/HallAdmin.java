@@ -15,6 +15,7 @@ public class HallAdmin extends JFrame{
 	//gespeichert werden
 	public static Map<String,JCheckBox> seatList = new HashMap<>();
 	public static Map<String,JPanel> rowList = new HashMap<>();
+	
 	//Die zwei Buttons...
 	JButton save = new JButton("Speichern");
 	JButton discard = new JButton("Zurueck");
@@ -41,7 +42,7 @@ public class HallAdmin extends JFrame{
 				JLabel label = new JLabel("Reihe"+i);
 				panel.add(label);
 				
-			} else {
+			} else { 
 				
 				panel.add(save);
 				panel.add(discard);
@@ -54,7 +55,7 @@ public class HallAdmin extends JFrame{
 			for(int j = 1; j <= 13; j++){
 				
 				if(i==9){
-					break;
+					break; //"Reihe" 9 bleibt frei fuer die Buttons
 				}
 				String seat = "seat"+j;
 				seatList.put(seat, new JCheckBox());
@@ -65,11 +66,9 @@ public class HallAdmin extends JFrame{
 	}
 	
 	
-	
 	public static void main(String [] args){
 		
 		HallAdmin app = new HallAdmin();
 		app.setVisible(true);
 	}
-	
 }
