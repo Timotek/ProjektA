@@ -15,10 +15,14 @@ public class HallUser extends JFrame{
 	//gespeichert werden
 	public static Map<String,JCheckBox> seatList = new HashMap<>();
 	public static Map<String,JPanel> rowList = new HashMap<>();
+	public static Map<Integer,Boolean> idList = new HashMap<>();
+
 	
 	//Die zwei Buttons...
 	JButton save = new JButton("Speichern");
 	JButton discard = new JButton("Zurueck");
+	
+	int seatID = 0;
 	
 	public HallUser(){
 		
@@ -36,6 +40,7 @@ public class HallUser extends JFrame{
 			rowList.put(row, new JPanel());
 			JPanel panel = rowList.get(row);
 			add(panel);
+			int k = 1;
 			
 			if(i<=8){
 				
@@ -52,7 +57,7 @@ public class HallUser extends JFrame{
 			
 			//Verschachtelte For-Schleife: Hier werden die Sitze 
 			//erstellt, in die HashMap geladen und dem JPanel hinzugefuegt
-			for(int j = 1; j <= 13; j++){
+			for(int j = k; j <= 13; j++){
 				
 				if(i==9){
 					break; //"Reihe" 9 bleibt frei fuer die Buttons
@@ -60,16 +65,18 @@ public class HallUser extends JFrame{
 				String seat = "seat"+j;
 				seatList.put(seat, new JCheckBox());
 				panel.add(seatList.get(seat));
-				
+				idList.put(seatID, true);
+				seatID ++;
+				System.out.println(seatID);
 			}			
 		}
 	}
 	
-	/*
+	
 	public static void main(String [] args){
 		
 		HallUser app = new HallUser();
 		app.setVisible(true);
 	}
-	*/
+	
 }
