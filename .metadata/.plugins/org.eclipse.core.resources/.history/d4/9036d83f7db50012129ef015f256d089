@@ -1,0 +1,14 @@
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileManager {
+	
+	try{
+		FileReader fileReader = new FileReader("seats.txt");
+
+	} catch(IOException arg0) {
+		arg0.printStackTrace();
+	}
+	
+	
+}

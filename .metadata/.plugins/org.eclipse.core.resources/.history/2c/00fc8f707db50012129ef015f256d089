@@ -1,0 +1,29 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileManager {
+	{
+	
+		try{
+			FileReader fileReader = new FileReader("seats.txt");
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+		
+	
+		} catch(IOException arg0) {
+			arg0.printStackTrace();
+		}
+	
+	
+	}
+	
+	
+
+	public void readFile(){
+		
+		String line = bufferedReader.readLine();
+		
+		
+	}
+	
+}
