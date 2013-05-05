@@ -22,6 +22,10 @@ public class HallUser extends JFrame{
 	JButton save = new JButton("Speichern");
 	JButton discard = new JButton("Zurueck");
 	
+	//Objekt vom FileManager erstellen
+	FileManager fm = new FileManager();
+
+	//Laufvariable fuer die idList-HashMap
 	int seatID = 0;
 	
 	public HallUser(){
@@ -62,12 +66,31 @@ public class HallUser extends JFrame{
 				if(i==9){
 					break; //"Reihe" 9 bleibt frei fuer die Buttons
 				}
-				String seat = "seat"+j;
-				seatList.put(seat, new JCheckBox());
-				panel.add(seatList.get(seat));
+				
+				//JCheckBox instanzieren und in SeatList packen
+				String seatString = "seat"+j;
+				seatList.put(seatString, new JCheckBox());
+				
+				//JCheckBox aus der SeatList holen
+				JCheckBox checkBox = seatList.get(seatString);
+				
+				//idList-Eintrag erstellen und Laufvariable hochzaehlen
 				idList.put(seatID, true);
 				seatID ++;
-				System.out.println(seatID);
+				
+				//Ueberpruefen ob Sitz verfuegbar mittel methode aus dem FileManager
+				int isGrey = fm.readFile();
+				if(isGrey == seatID){
+					checkBox.setEnabled(true);
+					System.out.println("passt");
+				} else {
+					checkBox.setEnabled(false);
+					System.out.println("passt nicht");
+				}
+
+				//Checkbox hinzufuegen
+				panel.add(checkBox);
+
 			}			
 		}
 	}
@@ -77,6 +100,6 @@ public class HallUser extends JFrame{
 		
 		HallUser app = new HallUser();
 		app.setVisible(true);
+
 	}
-	
 }
