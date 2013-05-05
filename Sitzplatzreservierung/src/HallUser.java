@@ -27,6 +27,9 @@ public class HallUser extends JFrame{
 
 	//Laufvariable fuer die idList-HashMap
 	int seatID = 0;
+
+	
+
 	
 	public HallUser(){
 		
@@ -35,6 +38,9 @@ public class HallUser extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(600,600);
 		setLayout(new GridLayout(9,1));
+		
+		//Datei waehlen 
+		fm.chooseFile("seats.txt");
 
 		//Erste For-Schleife: Hier werden die Reihen erstellt,
 		//dann in die HashMap geladen und dem JFrame hinzugefuegt
@@ -82,10 +88,11 @@ public class HallUser extends JFrame{
 				int isGrey = fm.readFile();
 				if(isGrey == seatID){
 					checkBox.setEnabled(true);
-					System.out.println("passt");
+					//System.out.println("passt");
 				} else {
 					checkBox.setEnabled(false);
-					System.out.println("passt nicht");
+					//checkBox.setLabel("G");
+					//System.out.println("passt nicht");
 				}
 
 				//Checkbox hinzufuegen
