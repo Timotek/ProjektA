@@ -1,0 +1,16 @@
+import javax.swing.JFrame;
+
+public class Schedule extends JFrame{
+	
+	public Schedule("Schedule"){
+		
+		
+		
+	}
+	
+	
+	public static void main(String[]args){
+		
+		Schedule app = new Schedule();
+	}
+}

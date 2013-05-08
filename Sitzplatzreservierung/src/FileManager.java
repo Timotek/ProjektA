@@ -41,7 +41,24 @@ public class FileManager {
 		}
 	}
 
+	
+	
+	public String readHall(){
 
+		try {
+			line = bufferedReader.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//System.out.println(line);
+
+	    //int stringToInt = Integer.parseInt(line);
+		return line;
+	}
+	
+	
+	
 
 	public int readFile(){
 

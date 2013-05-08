@@ -1,0 +1,52 @@
+import java.awt.Component;
+import java.awt.GridLayout;
+
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class ScheduleUser extends JFrame{
+	
+	public ScheduleUser(){
+		
+		super("Schedule");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(600,600);
+		setLayout(new GridLayout(4,0));
+		
+		JPanel titlePanel = new JPanel();
+		JPanel hall1Panel = new JPanel();
+		JPanel hall2Panel = new JPanel();
+		JPanel hall3Panel = new JPanel();
+		
+		add(titlePanel);
+		add(hall1Panel);
+		add(hall2Panel);
+		add(hall3Panel);
+		
+		JLabel title = new JLabel("Hier steht irgendein Scheiss");
+		JLabel hall1Label = new JLabel("Saal 1");
+		JLabel hall2Label = new JLabel("Saal 2");
+		JLabel hall3Label = new JLabel("Saal 3");
+		
+		titlePanel.add(title);
+		hall1Panel.add(hall1Label);
+		hall2Panel.add(hall2Label);
+		hall3Panel.add(hall3Label);
+		
+		JComboBox<String> hall1comboBox = new JComboBox<String>();
+		
+		
+		hall1Panel.add(hall1comboBox);
+		
+		
+	}
+	
+	
+	public static void main(String[]args){
+		
+		ScheduleUser app = new ScheduleUser();
+		app.setVisible(true);
+	}
+}

@@ -1,0 +1,63 @@
+import java.awt.Component;
+import java.awt.GridLayout;
+
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class ScheduleUser extends JFrame{
+	
+	FileManager fm = new FileManager();
+
+	
+	public ScheduleUser(){
+		
+		super("Schedule");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(600,600);
+		setLayout(new GridLayout(4,0));
+		
+		JPanel titlePanel = new JPanel();
+		JPanel movie1Panel = new JPanel();
+		JPanel movie2Panel = new JPanel();
+		JPanel movie3Panel = new JPanel();
+		
+		add(titlePanel);
+		add(movie1Panel);
+		add(movie2Panel);
+		add(movie3Panel);
+		
+		JLabel title = new JLabel("Hier steht irgendein Scheiss");
+		JLabel movie1Label = new JLabel("Film 1");
+		JLabel movie2Label = new JLabel("Film 2");
+		JLabel movie3Label = new JLabel("Film 3");
+		
+		titlePanel.add(title);
+		movie1Panel.add(movie1Label);
+		movie2Panel.add(movie2Label);
+		movie3Panel.add(movie3Label);
+		
+		fm.chooseFile("movie1.txt");
+		
+		String bla = fm.readMovie();
+		
+		System.out.println(bla);
+		
+		String movie1schedArray [] = {"1","2","3"};
+		
+		JComboBox movie1comboBox = new JComboBox(movie1schedArray);
+		
+		
+		movie1Panel.add(movie1comboBox);
+		
+		
+	}
+	
+	
+	public static void main(String[]args){
+		
+		ScheduleUser app = new ScheduleUser();
+		app.setVisible(true);
+	}
+}

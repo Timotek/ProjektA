@@ -1,0 +1,17 @@
+import javax.swing.JFrame;
+
+public class Schedule extends JFrame{
+	
+	public Schedule(){
+		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize("600,600");
+		
+	}
+	
+	
+	public static void main(String[]args){
+		
+		Schedule app = new Schedule();
+	}
+}
