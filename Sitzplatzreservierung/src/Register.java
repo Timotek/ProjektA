@@ -104,7 +104,7 @@ public class Register extends JFrame {
 	    public void actionPerformed (ActionEvent e){
 	    	name = nameTF.getText();
 	       System.out.println (name);
-	  //   sendData();
+	    sendData();
 	    }
     }
 	
@@ -122,7 +122,7 @@ public class Register extends JFrame {
 		 public void actionPerformed (ActionEvent e){
 		  firstName = firstNameTF.getText();
 	       System.out.println (firstName);
-	   //   sendData();
+	      sendData();
 		 }
     }
 	
