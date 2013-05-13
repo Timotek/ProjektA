@@ -3,11 +3,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class FileManager {
 	
 	String filename;
-	File file;
+	static File file;
 	String line;
 	FileReader fileReader;
 	BufferedReader bufferedReader;
@@ -74,11 +75,23 @@ public class FileManager {
 		return stringToInt;
 	}
 	
+	
+	public void createFile(String filename){
+		file = new File(filename);
+		try (final PrintWriter fileWriter = new PrintWriter(file);) {
+		
+		}
+		catch (FileNotFoundException e) {
+			
+		}
+		
+	}
+	
+	
 	/*
 	public static void main(String[]args){
 		
 		FileManager app = new FileManager();
-		//app.readFile();
 	}
 	*/
 	
