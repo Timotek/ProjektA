@@ -46,10 +46,10 @@ public class User {
 	}
 	
 	
-	public static void main (String[] args){
+/*	public static void main (String[] args){
 		new User("Wurst", "Hans", "mist@wurst.de");	
 		new User("Arte", "Tom", "tom@arte.de");	
 		
 	}
-	
+*/	
 }

@@ -90,6 +90,7 @@ public class Register extends JFrame {
 		registerButton.addActionListener (new FirstNameActionListener (firstNameTF));
 		registerButton.addActionListener (new EmailActionListener (emailTF));
 		southPanel.add(registerButton);
+	
 	}
 	
 	//ActionListener für Nachnamen
@@ -105,6 +106,7 @@ public class Register extends JFrame {
 	    public void actionPerformed (ActionEvent e){
 	    	name = nameTF.getText();
 	       System.out.println (name);
+	       sendData();
 	    }
     }
 	
@@ -122,6 +124,7 @@ public class Register extends JFrame {
 		 public void actionPerformed (ActionEvent e){
 		  firstName = firstNameTF.getText();
 	       System.out.println (firstName);
+	       sendData();
 		 }
     }
 	
@@ -138,7 +141,12 @@ public class Register extends JFrame {
 		 public void actionPerformed (ActionEvent e){
 		   email = emailTF.getText();
 	       System.out.println (email);
+	       sendData();
 	    }
+	}
+	public void sendData(){
+		new User(name, firstName, email);
+		System.out.println("SendData wurde ausgeführt");
 	}
 	
 
@@ -149,6 +157,6 @@ public class Register extends JFrame {
 	public static void main (String[] args){
 		Register app = new Register();
 		app.setVisible(true);
-		User user = new User(name, firstName, email);
+
 	}
 }
