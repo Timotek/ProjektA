@@ -11,22 +11,23 @@ public class User {
 	private String filename;
 	FileManager fm = new FileManager();
 
-	
-	public User(String name, String firstName, String email){
+	//IDim Konstruktor hinzugefügt
+	public User(int ID, String name, String firstName, String email){
+		this.ID = ID;
 		this.name = name;
 		this.firstName = firstName;
 		this.email = email;
 		createUser();
 
 	}
-	public void createUser(){
-		ID = ID+1;
-		filename = "USER"+ID;
+	public void createUser(){				// ID auskommentiert
+	//	ID = ID+1;
+		filename = "USER" + ID;
 		fm.createFile(filename+".txt");
 		System.out.println("Datei "+filename+".txt erstellt");
 		
 		sendUserData(ID ,name, firstName, email);
-		ID++;
+	//	ID++;
 	}
 	
 

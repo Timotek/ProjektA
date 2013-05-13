@@ -20,6 +20,7 @@ public class Register extends JFrame {
 	String name;
 	String firstName;
 	String email;
+	int ID = 1;
 	
 	///////////////////////
 	
@@ -39,9 +40,6 @@ public class Register extends JFrame {
 	public JTextField birthdayTF = new JTextField(25);
 	public JTextField emailTF = new JTextField(25);
 	
-	//public JButton registerButton = new JButton("Registrieren");
-	
-	//registerButton.addActionListener (new FooActionListener (nameTF));
 	
 	//////////////////////////////////
 	
@@ -106,7 +104,7 @@ public class Register extends JFrame {
 	    public void actionPerformed (ActionEvent e){
 	    	name = nameTF.getText();
 	       System.out.println (name);
-	       sendData();
+	  //   sendData();
 	    }
     }
 	
@@ -124,7 +122,7 @@ public class Register extends JFrame {
 		 public void actionPerformed (ActionEvent e){
 		  firstName = firstNameTF.getText();
 	       System.out.println (firstName);
-	       sendData();
+	   //   sendData();
 		 }
     }
 	
@@ -144,12 +142,24 @@ public class Register extends JFrame {
 	       sendData();
 	    }
 	}
-	public void sendData(){
-		new User(name, firstName, email);
-		System.out.println("SendData wurde ausgeführt");
-	}
 	
-
+	/*
+	public void createID(){
+		
+		ID = ID + 1;
+		System.out.println("ID wurde erzeugt");
+		sendData();
+	}
+	*/
+	
+	//ID wird hier hochgezählt
+	public void sendData(){
+		
+		System.out.println("ID wurde erzeugt");
+		new User(ID, name, firstName, email);
+		System.out.println("SendData wurde ausgeführt");
+		ID++;
+	}
 		//////////////////////////////////
 	
 	
