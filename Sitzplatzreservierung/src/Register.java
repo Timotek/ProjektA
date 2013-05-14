@@ -90,11 +90,7 @@ import java.awt.event.ActionListener;
 
 			//Actionlistener für Registerbutton
 			JButton registerButton = new JButton("Registrieren");
-			registerButton.addActionListener (new NameActionListener (nameTF));
-			registerButton.addActionListener (new FirstNameActionListener (firstNameTF));
-			registerButton.addActionListener (new EmailActionListener (emailTF));
-			registerButton.addActionListener (new UserNameActionListener (userNameTF));
-			registerButton.addActionListener (new pwActionListener (pwTF));
+			registerButton.addActionListener (new NameActionListener (firstNameTF, nameTF, emailTF, userNameTF, pwTF));
 			southPanel.add(registerButton);
 
 		}
@@ -103,95 +99,42 @@ import java.awt.event.ActionListener;
 		
 		//ActionListener für 5 Usereingaben
 		
-		//ActionEvents für Nachnamen
+		//ActionEvents für UserDaten
 		public class NameActionListener implements ActionListener {
 
 			private JTextField nameTF;
+			private JTextField firstNameTF;
+			private JTextField emailTF;
+			private JTextField userNameTF;
+			private JTextField pwTF;
 
-			public NameActionListener (JTextField nameTF){
+			public NameActionListener (JTextField nameTF, JTextField firstNameTF, JTextField emailTF, JTextField userNameTF, JTextField pwTF){
 				this.nameTF = nameTF;
+				this.firstNameTF = firstNameTF;
+				this.emailTF = emailTF;
+				this.userNameTF = userNameTF;
+				this.pwTF = pwTF;
+				
 			}
 
 			@Override
 			public void actionPerformed (ActionEvent e){
 				name = nameTF.getText();
+				firstName = firstNameTF.getText();
+				email = emailTF.getText();
+				userName = userNameTF.getText();
+				pw = pwTF.getText();
 				System.out.println (name);
+				System.out.println (firstName);
+				System.out.println (email);
+				System.out.println (userName);
+				System.out.println (pw);
 				sendData();
 			}
 		}
 
 
-		//ActionListener für Vornamen
-		public class FirstNameActionListener implements ActionListener {
-
-			private JTextField firstNameTF;
-
-			public FirstNameActionListener (JTextField firstNameTF){
-				this.firstNameTF = firstNameTF;
-			}
-
-			@Override
-			public void actionPerformed (ActionEvent e){
-				firstName = firstNameTF.getText();
-				System.out.println (firstName);
-				
-			}
-		}
 		
-		
-		//ActionListener für Username
-				public class UserNameActionListener implements ActionListener {
-
-					private JTextField userNameTF;
-
-					public UserNameActionListener (JTextField userNameTF){
-						this.userNameTF = userNameTF;
-					}
-
-					@Override
-					public void actionPerformed (ActionEvent e){
-						userName = userNameTF.getText();
-						System.out.println (userName);
-						
-					}
-				}
-				
-				
-				//ActionListener für pw
-				public class pwActionListener implements ActionListener {
-
-					private JTextField pwTF;
-
-					public pwActionListener (JTextField pwTF){
-						this.pwTF = pwTF;
-					}
-
-					@Override
-					public void actionPerformed (ActionEvent e){
-						pw = pwTF.getText();
-						System.out.println (pw);
-						
-					}
-				}		
-		
-
-		//ActionListener für E-Mail
-		public class EmailActionListener implements ActionListener {
-
-			private JTextField emailTF;
-
-			public EmailActionListener (JTextField emailTF){
-				this.emailTF = emailTF;
-			}
-
-			@Override
-			public void actionPerformed (ActionEvent e){
-				email = emailTF.getText();
-				System.out.println (email);
-				
-			}
-		}
-
 		
 
 	   //Übergabe der Userdaten an User.java
