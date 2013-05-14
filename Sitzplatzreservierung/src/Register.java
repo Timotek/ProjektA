@@ -16,23 +16,21 @@ import java.awt.event.ActionListener;
 
 		//Organisation
 
+		
 		// Variablen für Klasse User
 		String name;
 		String firstName;
 		String email;
-		String userName;       						  //neu
-		String pw;              					  //neu
-		//int ID = 1;
-
-		///////////////////////
+		String userName;       						  
+		String pw;              					  
 
 		private JLabel instructionsLabel = new JLabel();
 		private JLabel firstNameLabel = new JLabel();
 		private JLabel nameLabel = new JLabel();
 		private JLabel birthdayLabel = new JLabel();
 		private JLabel emailLabel = new JLabel();
-		private JLabel userNameLabel = new JLabel();    	   //neu
-		private JLabel pwLabel = new JLabel();          	   //neu
+		private JLabel userNameLabel = new JLabel();    	   
+		private JLabel pwLabel = new JLabel();          	   
 		
 		public JPanel northPanel;
 		public JPanel westPanel;
@@ -43,20 +41,16 @@ import java.awt.event.ActionListener;
 		public JTextField nameTF = new JTextField(25);
 		public JTextField birthdayTF = new JTextField(25);
 		public JTextField emailTF = new JTextField(25);
-		public JTextField userNameTF = new JTextField(25);				//neu
-		public JTextField pwTF = new JTextField(25);					//neu
+		public JTextField userNameTF = new JTextField(25);				
+		public JTextField pwTF = new JTextField(25);					
 
-		//////////////////////////////////
-
-
+		////////////////////////////////////////////////////
 
 		public Register(){
 			super("Registrierung");
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 			setSize(600,600);
 			setLayout(new BorderLayout());
-
-
 
 			//Header-Panel
 			northPanel = new JPanel(new GridLayout(10,0));
@@ -75,22 +69,22 @@ import java.awt.event.ActionListener;
 
 			firstNameLabel.setText(" Vorname: ");
 			nameLabel.setText(" Name: ");
-			userNameLabel.setText(" Username:");									//neu
-			pwLabel.setText(" Passwort");										//neu
+			userNameLabel.setText(" Username:");									
+			pwLabel.setText(" Passwort");										
 			birthdayLabel.setText(" Geburtsdatum:   (TT.MM.JJJJ)");
 			emailLabel.setText(" Email-Adresse:   (mustermann@domain.de)");
 			
 			westPanel.add(firstNameLabel);
 			westPanel.add(nameLabel);
-			westPanel.add(userNameLabel);						//neu
-			westPanel.add(pwLabel);								//neu
+			westPanel.add(userNameLabel);						
+			westPanel.add(pwLabel);								
 			westPanel.add(birthdayLabel);
 			westPanel.add(emailLabel);
 
 			eastPanel.add(firstNameTF);	
 			eastPanel.add(nameTF);
-			eastPanel.add(userNameTF);							//neu
-			eastPanel.add(pwTF);								//neu
+			eastPanel.add(userNameTF);							
+			eastPanel.add(pwTF);								
 			eastPanel.add(birthdayTF);
 			eastPanel.add(emailTF);
 
@@ -107,7 +101,9 @@ import java.awt.event.ActionListener;
 
 		////////////////////////////////////////////////////////////////////////
 		
-		//ActionListener für Nachnamen
+		//ActionListener für 5 Usereingaben
+		
+		//ActionEvents für Nachnamen
 		public class NameActionListener implements ActionListener {
 
 			private JTextField nameTF;
@@ -198,16 +194,15 @@ import java.awt.event.ActionListener;
 
 		
 
-		//ID wird hier hochgezählt
+	   //Übergabe der Userdaten an User.java
 		public void sendData(){
 
-		//	System.out.println("ID wurde erzeugt");
 			new User(name, firstName, email, userName, pw);
 			System.out.println("SendData wurde ausgeführt");
-			//ID++;
+			
 		}
-		//////////////////////////////////
-
+		
+		///////////////////////////////////////////////
 
 
 		public static void main (String[] args){
