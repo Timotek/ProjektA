@@ -1,19 +1,17 @@
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-
 public class User {
 	
-  //private int ID;
 	private String name;
 	private String firstName;
 	private String email;
-	private String userName;							//neu
-	private String pw;									//neu
+	private String userName;							
+	private String pw;									
 	private String filename;
 	FileManager fm = new FileManager();
 
-	//IDim Konstruktor hinzugefügt
+	//Übergabe der Userdaten im Konstruktor
 	public User(String name, String firstName, String email, String userName, String pw){
 	  //this.ID = ID;
 		this.name = name;
@@ -24,15 +22,13 @@ public class User {
 		createUser();
 
 	}
-	public void createUser(){				// ID auskommentiert
-	//	ID = ID+1;
-	//	filename = "USER" + ID;
+	public void createUser(){				
+
 		filename = userName;
 		fm.createFile(filename + ".txt");
 		System.out.println("Datei " + filename + ".txt erstellt");
-		
 		sendUserData(name, firstName, email, userName, pw);
-	//	ID++;
+
 	}
 	
 
