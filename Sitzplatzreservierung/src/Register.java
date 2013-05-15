@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JDialog;
 
 
 	public class Register extends JFrame {
@@ -22,7 +23,8 @@ import java.awt.event.ActionListener;
 		String firstName;
 		String email;
 		String userName;       						  
-		String pw;              					  
+		String pw;  
+		String pw2;
 
 		private JLabel instructionsLabel = new JLabel();
 		private JLabel firstNameLabel = new JLabel();
@@ -30,7 +32,8 @@ import java.awt.event.ActionListener;
 		private JLabel birthdayLabel = new JLabel();
 		private JLabel emailLabel = new JLabel();
 		private JLabel userNameLabel = new JLabel();    	   
-		private JLabel pwLabel = new JLabel();          	   
+		private JLabel pwLabel = new JLabel();    
+		private JLabel pw2Label = new JLabel();  
 		
 		public JPanel northPanel;
 		public JPanel westPanel;
@@ -42,8 +45,10 @@ import java.awt.event.ActionListener;
 		public JTextField birthdayTF = new JTextField(25);
 		public JTextField emailTF = new JTextField(25);
 		public JTextField userNameTF = new JTextField(25);				
-		public JTextField pwTF = new JTextField(25);					
+		public JTextField pwTF = new JTextField(25);	
+		public JTextField pw2TF = new JTextField(25);
 
+		public static JButton closeButton;
 		////////////////////////////////////////////////////
 
 		public Register(){
@@ -70,27 +75,30 @@ import java.awt.event.ActionListener;
 			firstNameLabel.setText(" Vorname: ");
 			nameLabel.setText(" Name: ");
 			userNameLabel.setText(" Username:");									
-			pwLabel.setText(" Passwort");										
+			pwLabel.setText(" Passwort");	
+			pw2Label.setText(" Passwort wiederholen:");
 			birthdayLabel.setText(" Geburtsdatum:   (TT.MM.JJJJ)");
 			emailLabel.setText(" Email-Adresse:   (mustermann@domain.de)");
 			
 			westPanel.add(firstNameLabel);
 			westPanel.add(nameLabel);
 			westPanel.add(userNameLabel);						
-			westPanel.add(pwLabel);								
+			westPanel.add(pwLabel);	
+			westPanel.add(pw2Label);	
 			westPanel.add(birthdayLabel);
 			westPanel.add(emailLabel);
 
 			eastPanel.add(firstNameTF);	
 			eastPanel.add(nameTF);
 			eastPanel.add(userNameTF);							
-			eastPanel.add(pwTF);								
+			eastPanel.add(pwTF);	
+			eastPanel.add(pw2TF);
 			eastPanel.add(birthdayTF);
 			eastPanel.add(emailTF);
 
 			//Actionlistener für Registerbutton
 			JButton registerButton = new JButton("Registrieren");
-			registerButton.addActionListener (new NameActionListener (firstNameTF, nameTF, emailTF, userNameTF, pwTF));
+			registerButton.addActionListener (new DataActionListener (firstNameTF, nameTF, emailTF, userNameTF, pwTF, pw2TF));
 			southPanel.add(registerButton);
 
 		}
@@ -100,23 +108,23 @@ import java.awt.event.ActionListener;
 		//ActionListener für 5 Usereingaben
 		
 		//ActionEvents für UserDaten
-		public class NameActionListener implements ActionListener {
+		public class DataActionListener implements ActionListener {
 
 			private JTextField nameTF;
 			private JTextField firstNameTF;
 			private JTextField emailTF;
 			private JTextField userNameTF;
 			private JTextField pwTF;
+			private JTextField pw2TF;
 
-			public NameActionListener (JTextField nameTF, JTextField firstNameTF, JTextField emailTF, JTextField userNameTF, JTextField pwTF){
+			public DataActionListener (JTextField nameTF, JTextField firstNameTF, JTextField emailTF, JTextField userNameTF, JTextField pwTF, JTextField pw2TF){
 				this.nameTF = nameTF;
 				this.firstNameTF = firstNameTF;
 				this.emailTF = emailTF;
 				this.userNameTF = userNameTF;
 				this.pwTF = pwTF;
-				
+				this.pw2TF = pw2TF;
 			}
-
 			@Override
 			public void actionPerformed (ActionEvent e){
 				name = nameTF.getText();
@@ -124,33 +132,63 @@ import java.awt.event.ActionListener;
 				email = emailTF.getText();
 				userName = userNameTF.getText();
 				pw = pwTF.getText();
+				pw2 = pw2TF.getText();
 				System.out.println (name);
 				System.out.println (firstName);
 				System.out.println (email);
 				System.out.println (userName);
 				System.out.println (pw);
-				sendData();
+				System.out.println (pw2);
+				if(comparePassword()==true){
+					sendData();
+				}
 			}
 		}
 
-
+		//Vergleich der Passworteingabe
+		public boolean comparePassword(){
+			if(pw.equals(pw2)) {
+			    System.out.println("gleich");
+			    return true;
+			}
+			 else {
+				 System.out.println("ungleich");
+				 pwDialog();  
+			     return false;
+			    }
+			}
 		
+		//JDialog Fenster falls das Passwort falsch ist
+		public void pwDialog() {
+			final JDialog pwDialog = new JDialog();
+	        pwDialog.setTitle("Achtung");
+	        pwDialog.setSize(200,200);
+	        pwDialog.setModal(false);
+	        pwDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+	        pwDialog.setSize(200,200);
+	        pwDialog.setLayout(new FlowLayout());
+	        pwDialog.add(new JLabel("Passwörter nicht identisch!"));    
+	        JButton closeButton = new JButton("schließ verflucht");
+	        pwDialog.add(closeButton);       
+	        pwDialog.setVisible(true);
+	        closeButton.addActionListener(new ActionListener(){
+	        	public void actionPerformed(ActionEvent e) {
+	        		pwDialog.dispose();	
+	        	}
+	        });  
+	    }
 		
 
 	   //Übergabe der Userdaten an User.java
 		public void sendData(){
-
 			new User(name, firstName, email, userName, pw);
-			System.out.println("SendData wurde ausgeführt");
-			
+			System.out.println("SendData wurde ausgeführt");	
 		}
 		
 		///////////////////////////////////////////////
 
-
 		public static void main (String[] args){
 			Register app = new Register();
 			app.setVisible(true);
-
 		}
 	}
