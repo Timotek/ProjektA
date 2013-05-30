@@ -16,11 +16,10 @@ import javax.swing.JDialog;
 	public class Register extends JFrame {
 
 		//Organisation
-
 		
 		// Variablen für Klasse User
-		String name;
 		String firstName;
+		String name;
 		String email;
 		String userName;       						  
 		String pw;  
@@ -49,7 +48,7 @@ import javax.swing.JDialog;
 		public JTextField pw2TF = new JTextField(25);
 
 		public static JButton closeButton;
-		////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////
 
 		public Register(){
 			super("Registrierung");
@@ -110,16 +109,16 @@ import javax.swing.JDialog;
 		//ActionEvents für UserDaten
 		public class DataActionListener implements ActionListener {
 
-			private JTextField nameTF;
 			private JTextField firstNameTF;
+			private JTextField nameTF;
 			private JTextField emailTF;
 			private JTextField userNameTF;
 			private JTextField pwTF;
 			private JTextField pw2TF;
 
-			public DataActionListener (JTextField nameTF, JTextField firstNameTF, JTextField emailTF, JTextField userNameTF, JTextField pwTF, JTextField pw2TF){
-				this.nameTF = nameTF;
+			public DataActionListener (JTextField firstNameTF, JTextField nameTF, JTextField emailTF, JTextField userNameTF, JTextField pwTF, JTextField pw2TF){
 				this.firstNameTF = firstNameTF;
+				this.nameTF = nameTF;
 				this.emailTF = emailTF;
 				this.userNameTF = userNameTF;
 				this.pwTF = pwTF;
@@ -127,14 +126,14 @@ import javax.swing.JDialog;
 			}
 			@Override
 			public void actionPerformed (ActionEvent e){
-				name = nameTF.getText();
 				firstName = firstNameTF.getText();
+				name = nameTF.getText();
 				email = emailTF.getText();
 				userName = userNameTF.getText();
 				pw = pwTF.getText();
 				pw2 = pw2TF.getText();
-				System.out.println (name);
 				System.out.println (firstName);
+				System.out.println (name);
 				System.out.println (email);
 				System.out.println (userName);
 				System.out.println (pw);
@@ -178,14 +177,13 @@ import javax.swing.JDialog;
 	        });  
 	    }
 		
-
 	   //Übergabe der Userdaten an User.java
 		public void sendData(){
-			new User(name, firstName, email, userName, pw);
+			new User(firstName, name, email, userName, pw);
 			System.out.println("SendData wurde ausgeführt");	
 		}
 		
-		///////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////
 
 		public static void main (String[] args){
 			Register app = new Register();
