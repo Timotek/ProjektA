@@ -48,7 +48,7 @@ import javax.swing.JDialog;
 		public JTextField pw2TF = new JTextField(25);
 
 		public static JButton closeButton;
-		/////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////
 
 		public Register(){
 			super("Registrierung");
@@ -99,10 +99,9 @@ import javax.swing.JDialog;
 			JButton registerButton = new JButton("Registrieren");
 			registerButton.addActionListener (new DataActionListener (firstNameTF, nameTF, emailTF, userNameTF, pwTF, pw2TF));
 			southPanel.add(registerButton);
-
 		}
 
-		////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////
 		
 		//ActionListener für 5 Usereingaben
 		

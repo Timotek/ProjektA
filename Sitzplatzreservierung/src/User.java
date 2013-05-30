@@ -20,15 +20,14 @@ public class User {
 		this.userName = userName;
 		this.pw = pw;
 		createUser();
-
 	}
+	
 	public void createUser(){				
 
 		filename = userName;
 		fm.createFile(filename + ".txt");
 		System.out.println("Datei " + filename + ".txt erstellt");
 		sendUserData(firstName, name, email, userName, pw);
-
 	}
 	
 
