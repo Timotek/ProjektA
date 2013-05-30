@@ -2,7 +2,6 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 public class User {
-	
 	private String firstName;
 	private String name;
 	private String email;
