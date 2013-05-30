@@ -3,8 +3,8 @@ import java.io.PrintWriter;
 
 public class User {
 	
-	private String name;
 	private String firstName;
+	private String name;
 	private String email;
 	private String userName;							
 	private String pw;									
@@ -12,10 +12,10 @@ public class User {
 	FileManager fm = new FileManager();
 
 	//Übergabe der Userdaten im Konstruktor
-	public User(String name, String firstName, String email, String userName, String pw){
+	public User(String firstName, String name, String email, String userName, String pw){
 	  //this.ID = ID;
-		this.name = name;
 		this.firstName = firstName;
+		this.name = name;
 		this.email = email;
 		this.userName = userName;
 		this.pw = pw;
@@ -27,7 +27,7 @@ public class User {
 		filename = userName;
 		fm.createFile(filename + ".txt");
 		System.out.println("Datei " + filename + ".txt erstellt");
-		sendUserData(name, firstName, email, userName, pw);
+		sendUserData(firstName, name, email, userName, pw);
 
 	}
 	
