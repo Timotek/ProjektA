@@ -157,6 +157,7 @@ import javax.swing.JDialog;
 			}
 		
 		
+		
 		//JDialog Fenster falls das Passwort falsch ist
 		public void pwDialog() {
 			final JDialog pwDialog = new JDialog();
