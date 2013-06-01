@@ -63,7 +63,7 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 		@Override
 		public void actionPerformed (ActionEvent e){
 			userName = userField.getText();
-			pw = passField.getText();
+			pw = String.valueOf(passField.getPassword());
 			System.out.println (userName);
 			System.out.println(pw);
 			saveUserData();
@@ -75,8 +75,8 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 	//Scannen der txt Datei, Schreiben der Zeilen in ArrayList
 
 	public void saveUserData(){	
-		try {
-			Scanner scan = new Scanner(new File(userName + ".txt"));
+		try { //Speicherpfad muss später angepasst werden
+			Scanner scan = new Scanner(new File("\\"+userName + ".txt"));
 			while(scan.hasNextLine()) {
 				userList.add(scan.nextLine());
 			}
