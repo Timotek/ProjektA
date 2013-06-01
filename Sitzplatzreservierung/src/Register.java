@@ -135,7 +135,7 @@ import javax.swing.JDialog;
 				System.out.println (userName);
 				System.out.println (pw);
 				System.out.println (pw2);
-				if(comparePassword()==true){
+				if(comparePassword()==true && checkIfFilledIn()==true){
 					sendData();
 				}
 			}
@@ -154,6 +154,38 @@ import javax.swing.JDialog;
 			    }
 			}
 		
+		
+		//Überprüfen, ob alle Felder ausgefüllt
+		public boolean checkIfFilledIn(){
+			if (firstName.equals("") | name.equals("") | email.equals("") | 
+					userName.equals("") | pw.equals("") | pw2.equals("")){
+				filledInDialog();
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+		
+		//JDialog Fester, falls nicht alle Daten ausgefüllt wurden
+		public void filledInDialog(){
+			final JDialog filledInDialog = new JDialog();
+			filledInDialog.setTitle("Fehler");
+			filledInDialog.setSize(400,100);
+			filledInDialog.setModal(false);
+			//filledInDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+			filledInDialog.setLayout(new GridLayout(2,1));
+			filledInDialog.add(new JLabel("Bitte füllen Sie alle Felder aus"));    
+		    JButton closeButton = new JButton("schließen");
+		    filledInDialog.add(closeButton);       
+		    filledInDialog.setVisible(true);
+		    closeButton.addActionListener(new ActionListener(){
+		    
+		    public void actionPerformed(ActionEvent e) {
+		    	filledInDialog.dispose();	
+		    }
+		    }); 		
+		}
 		
 		
 		//JDialog Fenster falls das Passwort falsch ist
