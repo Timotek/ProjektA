@@ -1,12 +1,10 @@
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,8 +42,8 @@ import javax.swing.JDialog;
 		public JTextField birthdayTF = new JTextField(25);
 		public JTextField emailTF = new JTextField(25);
 		public JTextField userNameTF = new JTextField(25);				
-		public JTextField pwTF = new JTextField(25);	
-		public JTextField pw2TF = new JTextField(25);
+		public JPasswordField pwTF = new JPasswordField(25);	
+		public JPasswordField pw2TF = new JPasswordField(25);
 
 		public static JButton closeButton;
 		////////////////////////////////////////////////////////////////////////////////
@@ -112,16 +110,16 @@ import javax.swing.JDialog;
 			private JTextField nameTF;
 			private JTextField emailTF;
 			private JTextField userNameTF;
-			private JTextField pwTF;
-			private JTextField pw2TF;
+			private JPasswordField pwTF;
+			private JPasswordField pw2TF;
 
-			public DataActionListener (JTextField firstNameTF, JTextField nameTF, JTextField emailTF, JTextField userNameTF, JTextField pwTF, JTextField pw2TF){
+			public DataActionListener (JTextField firstNameTF, JTextField nameTF, JTextField emailTF, JTextField userNameTF, JPasswordField pwTF2, JPasswordField pw2tf2){
 				this.firstNameTF = firstNameTF;
 				this.nameTF = nameTF;
 				this.emailTF = emailTF;
 				this.userNameTF = userNameTF;
-				this.pwTF = pwTF;
-				this.pw2TF = pw2TF;
+				this.pwTF = pwTF2;
+				this.pw2TF = pw2tf2;
 			}
 			@Override
 			public void actionPerformed (ActionEvent e){
@@ -129,8 +127,8 @@ import javax.swing.JDialog;
 				name = nameTF.getText();
 				email = emailTF.getText();
 				userName = userNameTF.getText();
-				pw = pwTF.getText();
-				pw2 = pw2TF.getText();
+				pw = String.valueOf(pwTF.getPassword());
+				pw2 = String.valueOf(pw2TF.getPassword());
 				System.out.println (firstName);
 				System.out.println (name);
 				System.out.println (email);
