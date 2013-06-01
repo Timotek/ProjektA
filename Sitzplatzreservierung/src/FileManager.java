@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 
 public class FileManager {
@@ -58,8 +59,6 @@ public class FileManager {
 		return line;
 	}
 	
-	
-	
 
 	public int readFile(){
 
@@ -75,9 +74,13 @@ public class FileManager {
 		return stringToInt;
 	}
 	
+
+	//createFile-Methode durchsucht Hauptverzeichnis nach bestimmter Datei
+	//Bisher nur möglich, die Dateien im lokalen Hauptverzeichnis zu speicher,
+	//die Pfade müssen noch angepasst werden...	
 	
 	public void createFile(String filename){
-		file = new File(filename);
+		file = new File("\\"+filename);
 		try (final PrintWriter fileWriter = new PrintWriter(file);) {
 		
 		}
@@ -85,6 +88,26 @@ public class FileManager {
 			
 		}
 		
+	}
+	
+	//searchFile-Methode durchsucht Hauptverzeichnis nach bestimmter Datei
+	//Bisher nur möglich, die Dateien im lokalen Hauptverzeichnis zu speicher,
+	//die Pfade müssen noch angepasst werden...
+	
+	public boolean searchFile(String Filename){
+		filename = "\\"+Filename;
+		System.out.println("Dateiname, nach dem gesucht wird: "+filename);
+		File f = new File("\\");
+		File[] fileArray = f.listFiles();
+		
+		for (int i = 0; i < fileArray.length; i++){
+			String arrayFileName = fileArray[i].getPath().toString();
+			System.out.println(arrayFileName);
+			if (arrayFileName.equalsIgnoreCase(filename)){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	

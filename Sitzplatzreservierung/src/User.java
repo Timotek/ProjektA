@@ -1,5 +1,14 @@
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 
 
 public class User {
@@ -22,13 +31,38 @@ public class User {
 		createUser();
 	}
 	
+	
 	public void createUser(){				
-
 		filename = userName;
-		fm.createFile(filename + ".txt");
-		System.out.println("Datei " + filename + ".txt erstellt");
-		sendUserData(firstName, name, email, userName, pw);
+		
+		if (fm.searchFile(filename + ".txt") == true){
+			userDialog();
+		}
+		else {
+			fm.createFile(filename + ".txt");
+			System.out.println("Datei " + filename + ".txt erstellt");
+			sendUserData(firstName, name, email, userName, pw);
+		}
 	}
+	
+	public void userDialog() {
+		final JDialog userDialog = new JDialog();
+			userDialog.setTitle("Fehler");
+			userDialog.setSize(400,100);
+			userDialog.setModal(false);
+			//userDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+			userDialog.setLayout(new GridLayout(2,1));
+			userDialog.add(new JLabel("Der Username existiert bereits"));    
+	        JButton closeButton = new JButton("schlieﬂen");
+	        userDialog.add(closeButton);       
+	        userDialog.setVisible(true);
+	        closeButton.addActionListener(new ActionListener(){
+	       
+	        	public void actionPerformed(ActionEvent e) {
+	        		userDialog.dispose();	
+	        	}
+	        });  
+	 }
 	
 
 	public void sendUserData(Object object1, Object object2, Object object3, Object object4, Object object5){
