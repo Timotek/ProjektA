@@ -1,3 +1,4 @@
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -5,6 +6,7 @@ import java.util.ArrayList;
 import java.io.*;
 import java.util.*;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -30,7 +32,7 @@ public class Login extends JFrame{
 		
 		//Standard-Konstruktor
 		setDefaultCloseOperation(EXIT_ON_CLOSE); //das muessen wir spaeter wohl rausnehmen, hab gelesen, dass das stoeren kann, wenn man den jframe im browser darstellen moechte
-		setSize(300,100);
+		setSize(400,100);
 		setLayout(new GridLayout(3,2));
 		
 		//Hinzufuegen der Komponenten zum JFrame
@@ -85,7 +87,7 @@ public class Login extends JFrame{
 			} 
 			catch(FileNotFoundException e) {
 				System.out.println("Fehler: Quelldatei existiert nicht");
-				System.exit(1);
+				loginDialog();
 			} 
 			catch(Exception e) {
 				System.out.println("Fehler: Ein unbekannter Fehler ist aufgetreten");
@@ -104,10 +106,33 @@ public class Login extends JFrame{
 			}
 			else {
 				System.out.println("Passwörter nicht gleich!");
+				loginDialog();
 			}
 				// eigentliche Funktion: Weiterleitung zur entsprechenden Seite bei erfolgreichem Login
 				// bzw. bei fehlgeschlagenem Login JDialog Meldung
-	    }
+		}
+			
+		public void loginDialog() {
+			final JDialog loginDialog = new JDialog();
+				loginDialog.setTitle("");
+				loginDialog.setSize(400,100);
+		        loginDialog.setModal(false);
+		        loginDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+		        loginDialog.setLayout(new FlowLayout());
+		        loginDialog.add(new JLabel("Das Passwort oder der Benutzername ist nicht korrekt"));    
+		        JButton closeButton = new JButton("schließen");
+		        loginDialog.add(closeButton);       
+		        loginDialog.setVisible(true);
+		        closeButton.addActionListener(new ActionListener(){
+		       
+		        	public void actionPerformed(ActionEvent e) {
+		        		loginDialog.dispose();	
+		        	}
+		        });  
+		 }
+	    
+		
+		
 
 	
 	
