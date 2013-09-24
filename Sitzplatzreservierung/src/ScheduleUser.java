@@ -3,6 +3,7 @@ import java.awt.GridLayout;
 import java.awt.List;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,6 +25,10 @@ public class ScheduleUser extends JFrame{
 		JPanel hall1Panel = new JPanel();
 		JPanel hall2Panel = new JPanel();
 		JPanel hall3Panel = new JPanel();
+		
+		JButton hall1ok = new JButton("Auswaehlen");
+		JButton hall2ok = new JButton("Auswaehlen");
+		JButton hall3ok = new JButton("Auswaehlen");
 		
 		add(titlePanel);
 		add(hall1Panel);
@@ -47,6 +52,7 @@ public class ScheduleUser extends JFrame{
 			hall1comboBox.addItem(fm.readHall());
 		}
 		hall1Panel.add(hall1comboBox);
+		hall1Panel.add(hall1ok);
 
 		/////////////////////////////////////////
 		
@@ -60,6 +66,8 @@ public class ScheduleUser extends JFrame{
 			hall2comboBox.addItem(fm.readHall());
 		}
 		hall2Panel.add(hall2comboBox);
+		hall2Panel.add(hall2ok);
+
 		
 		//////////////////////////////////////////
 		
@@ -73,7 +81,8 @@ public class ScheduleUser extends JFrame{
 			hall3comboBox.addItem(fm.readHall());
 		}
 		hall3Panel.add(hall3comboBox);
-		
+		hall3Panel.add(hall3ok);
+
 
 		
 		
