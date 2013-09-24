@@ -1,9 +1,0 @@
-public class Login extends{
-	
-	public Login(){
-		
-		setDefaultCloseOperation(EXIT_ON_CLOSE); //das muessen wir spaeter wohl rausnehmen, hab gelesen, dass das stoeren kann, wenn man den jframe im browser darstellen moechte
-		
-	}
-	
-}

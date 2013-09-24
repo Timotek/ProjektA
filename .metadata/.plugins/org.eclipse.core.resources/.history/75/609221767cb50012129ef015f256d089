@@ -1,6 +1,0 @@
-public class FileManager {
-	
-	FileReader fileReader = new FileReader();
-	
-	
-}
