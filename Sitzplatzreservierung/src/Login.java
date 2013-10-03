@@ -76,7 +76,7 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 
 	public void saveUserData(){	
 		try { //Speicherpfad muss später angepasst werden
-			Scanner scan = new Scanner(new File("\\"+userName + ".txt"));
+			Scanner scan = new Scanner(new File("User\\"+userName + ".txt"));
 			while(scan.hasNextLine()) {
 				userList.add(scan.nextLine());
 			}

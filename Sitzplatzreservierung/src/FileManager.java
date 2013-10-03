@@ -80,7 +80,7 @@ public class FileManager {
 	//die Pfade müssen noch angepasst werden...	
 	
 	public void createFile(String filename){
-		file = new File("\\"+filename);
+		file = new File("User\\"+filename);
 		try (final PrintWriter fileWriter = new PrintWriter(file);) {
 		
 		}
