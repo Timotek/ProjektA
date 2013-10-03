@@ -75,10 +75,7 @@ public class FileManager {
 	}
 	
 
-	//createFile-Methode durchsucht Hauptverzeichnis nach bestimmter Datei
-	//Bisher nur möglich, die Dateien im lokalen Hauptverzeichnis zu speicher,
-	//die Pfade müssen noch angepasst werden...	
-	
+	//createFile-Methode erstellt die User-Dateien im User-Ordner des Hauptverzeichnisses
 	public void createFile(String filename){
 		file = new File("User\\"+filename);
 		try (final PrintWriter fileWriter = new PrintWriter(file);) {
@@ -90,14 +87,13 @@ public class FileManager {
 		
 	}
 	
-	//searchFile-Methode durchsucht Hauptverzeichnis nach bestimmter Datei
-	//Bisher nur möglich, die Dateien im lokalen Hauptverzeichnis zu speicher,
-	//die Pfade müssen noch angepasst werden...
 	
+	//searchFile durchsucht Projekthauptverzeichnis nach bestimmter Datei
+	//hier: durchsucht, ob ein Username bei Registrierung schon vorhanden ist
 	public boolean searchFile(String Filename){
-		filename = "\\"+Filename;
+		filename = "User\\"+Filename;
 		System.out.println("Dateiname, nach dem gesucht wird: "+filename);
-		File f = new File("\\");
+		File f = new File("User\\");
 		File[] fileArray = f.listFiles();
 		
 		for (int i = 0; i < fileArray.length; i++){

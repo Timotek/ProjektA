@@ -75,7 +75,7 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 	//Scannen der txt Datei, Schreiben der Zeilen in ArrayList
 
 	public void saveUserData(){	
-		try { //Speicherpfad muss später angepasst werden
+		try { //Pfad zeigt auf User-Verzeichnis im Projektverzeichnis
 			Scanner scan = new Scanner(new File("User\\"+userName + ".txt"));
 			while(scan.hasNextLine()) {
 				userList.add(scan.nextLine());
