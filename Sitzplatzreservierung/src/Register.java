@@ -18,6 +18,7 @@ import javax.swing.JDialog;
 		// Variablen für Klasse User
 		String firstName;
 		String name;
+		String birthday;
 		String email;
 		String userName;       						  
 		String pw;  
@@ -95,7 +96,7 @@ import javax.swing.JDialog;
 
 			//Actionlistener für Registerbutton
 			JButton registerButton = new JButton("Registrieren");
-			registerButton.addActionListener (new DataActionListener (firstNameTF, nameTF, emailTF, userNameTF, pwTF, pw2TF));
+			registerButton.addActionListener (new DataActionListener (firstNameTF, nameTF, birthdayTF, emailTF, userNameTF, pwTF, pw2TF));
 			southPanel.add(registerButton);
 		}
 
@@ -108,14 +109,16 @@ import javax.swing.JDialog;
 
 			private JTextField firstNameTF;
 			private JTextField nameTF;
+			private JTextField birthdayTF;
 			private JTextField emailTF;
 			private JTextField userNameTF;
 			private JPasswordField pwTF;
 			private JPasswordField pw2TF;
 
-			public DataActionListener (JTextField firstNameTF, JTextField nameTF, JTextField emailTF, JTextField userNameTF, JPasswordField pwTF2, JPasswordField pw2tf2){
+			public DataActionListener (JTextField firstNameTF, JTextField nameTF, JTextField birthdayTF, JTextField emailTF, JTextField userNameTF, JPasswordField pwTF2, JPasswordField pw2tf2){
 				this.firstNameTF = firstNameTF;
 				this.nameTF = nameTF;
+				this.birthdayTF = birthdayTF;
 				this.emailTF = emailTF;
 				this.userNameTF = userNameTF;
 				this.pwTF = pwTF2;
@@ -125,12 +128,14 @@ import javax.swing.JDialog;
 			public void actionPerformed (ActionEvent e){
 				firstName = firstNameTF.getText();
 				name = nameTF.getText();
+				birthday = birthdayTF.getText();
 				email = emailTF.getText();
 				userName = userNameTF.getText();
 				pw = String.valueOf(pwTF.getPassword());
 				pw2 = String.valueOf(pw2TF.getPassword());
 				System.out.println (firstName);
 				System.out.println (name);
+				System.out.println(birthday);
 				System.out.println (email);
 				System.out.println (userName);
 				System.out.println (pw);
@@ -157,7 +162,7 @@ import javax.swing.JDialog;
 		
 		//Überprüfen, ob alle Felder ausgefüllt
 		public boolean checkIfFilledIn(){
-			if (firstName.equals("") | name.equals("") | email.equals("") | 
+			if (firstName.equals("") | name.equals("") | birthday.equals("") | email.equals("") | 
 					userName.equals("") | pw.equals("") | pw2.equals("")){
 				filledInDialog();
 				return false;
@@ -198,7 +203,7 @@ import javax.swing.JDialog;
 	        pwDialog.setSize(200,200);
 	        pwDialog.setLayout(new FlowLayout());
 	        pwDialog.add(new JLabel("Passwörter nicht identisch!"));    
-	        JButton closeButton = new JButton("schließ verflucht");
+	        JButton closeButton = new JButton("schließen");
 	        pwDialog.add(closeButton);       
 	        pwDialog.setVisible(true);
 	        closeButton.addActionListener(new ActionListener(){
@@ -210,7 +215,7 @@ import javax.swing.JDialog;
 		
 	   //Übergabe der Userdaten an User.java
 		public void sendData(){
-			new User(firstName, name, email, userName, pw);
+			new User(firstName, name, birthday, email, userName, pw);
 			System.out.println("SendData wurde ausgeführt");	
 		}
 		
