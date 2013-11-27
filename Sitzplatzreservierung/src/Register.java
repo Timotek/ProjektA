@@ -47,6 +47,7 @@ import javax.swing.JDialog;
 		public JPasswordField pw2TF = new JPasswordField(25);
 
 		public static JButton closeButton;
+		
 		////////////////////////////////////////////////////////////////////////////////
 
 		public Register(){
@@ -99,6 +100,15 @@ import javax.swing.JDialog;
 			JButton registerButton = new JButton("Registrieren");
 			registerButton.addActionListener (new DataActionListener (firstNameTF, nameTF, birthdayTF, emailTF, userNameTF, pwTF, pw2TF));
 			southPanel.add(registerButton);
+			JButton abortButton = new JButton("Abbrechen");
+			//Button zum Abbrechen eingefügt
+			southPanel.add(abortButton);
+			abortButton.addActionListener(new java.awt.event.ActionListener() {
+		            public void actionPerformed(java.awt.event.ActionEvent e) {
+		            dispose();
+		            }
+		        });
+			
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////

@@ -24,6 +24,7 @@ JPasswordField passField = new JPasswordField();
 JButton loginButton = new JButton("Login");
 JButton registerButton = new JButton("New Here? Sign up!");
 
+
 String userName;
 String pw;
 
