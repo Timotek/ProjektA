@@ -30,7 +30,7 @@ String pw;
 FileManager fileM = new FileManager(); // Filemanager neues Objekt
 
 	public Login(){
-//
+//test
 		//Standard-Konstruktor
 		setDefaultCloseOperation(EXIT_ON_CLOSE); //das muessen wir spaeter wohl rausnehmen, hab gelesen, dass das stoeren kann, wenn man den jframe im browser darstellen moechte
 		setSize(400,100);
