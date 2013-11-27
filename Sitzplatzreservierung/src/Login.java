@@ -100,7 +100,7 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 
 	public void compareUserData(){
 
-		if(pw.equals(userList.get(4)) ){
+		if(pw.equals(userList.get(5)) ){
 			System.out.println("Passwörter sind gleich!");
 			System.out.println("Eingegebenes Passwort: " + pw);
 			System.out.println("Gespeichertes Passwort: " + userList.get(4));
