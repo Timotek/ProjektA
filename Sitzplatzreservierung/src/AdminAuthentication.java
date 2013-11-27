@@ -18,12 +18,12 @@ public class AdminAuthentication extends JFrame{
 	
 	JButton btnok2 = new JButton("OK");
 	JLabel hint2 = new JLabel("Hinweis");
-	JLabel subtext2 = new JLabel("Änderungen erfolgreich gespeichert");
+	JLabel subtext2 = new JLabel("ï¿½nderungen erfolgreich gespeichert");
 	
 	public AdminAuthentication(){
 		
 		
-		super("Admin Bestätigung");
+		super("Admin Bestï¿½tigung");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(600,600);
 		setLayout(new GridLayout(10, 1));
@@ -59,8 +59,8 @@ public class AdminAuthentication extends JFrame{
 	
 	public static void main(String [] args){
 		
-		AdminAuthentication adminWindow = new AdminAuthentication();
-		adminWindow.setVisible(true);
+		//AdminAuthentication adminWindow = new AdminAuthentication();
+		//adminWindow.setVisible(true);
 	}
 	
 }

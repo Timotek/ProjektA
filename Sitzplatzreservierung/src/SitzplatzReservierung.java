@@ -174,8 +174,9 @@ public class SitzplatzReservierung extends JFrame {
 	}
 //------------------------------------------------------------------------------	
 	
-	//public static void main (String[] args) {
-		//new SitzplatzReservierung();	
-	//}
+	public static void main (String[] args) {
+		new SitzplatzReservierung();
+		
+	}
 	
 }

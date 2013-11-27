@@ -1,4 +1,6 @@
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,6 +44,9 @@ public class HallUser extends JFrame{
 		//Datei waehlen 
 		fm.chooseFile("seats.txt");
 
+		save.addActionListener(new SaveListener());
+
+		
 		//Erste For-Schleife: Hier werden die Reihen erstellt,
 		//dann in die HashMap geladen und dem JFrame hinzugefuegt
 		for(int i = 1; i <= 9 ; i++){
@@ -74,7 +79,7 @@ public class HallUser extends JFrame{
 				}
 				
 				//JCheckBox instanzieren und in SeatList packen
-				String seatString = "seat"+j;
+				String seatString = "seat"+i+j;
 				seatList.put(seatString, new JCheckBox());
 				
 				//JCheckBox aus der SeatList holen
@@ -101,6 +106,39 @@ public class HallUser extends JFrame{
 			}			
 		}
 	}
+	
+	
+	//Dieser Action Listener uberpruft, welch Checkboxen ausgewählt sind
+	public class SaveListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+			JCheckBox tempBox;
+			
+			for(int i = 1; i <= 8 ; i++){
+				
+				for(int j = 1; j <= 13; j++){
+					
+					//System.out.println(seatList.get("seat"+i+j));
+
+					tempBox = seatList.get("seat"+i+j);
+					
+					if(tempBox.isSelected() == true){
+						
+						fm.chooseFile("seats.txt");
+
+						
+						System.out.println("DIKKA");
+					} else {
+						System.out.println("LALA");
+					}
+				}
+			}
+		}
+	}
+	
 	
 	
 	public static void main(String [] args){

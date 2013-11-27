@@ -65,11 +65,11 @@ public class HallAdmin extends JFrame{
 		}
 	}
 	
-	/*
+	
 	public static void main(String [] args){
 		
 		HallAdmin app = new HallAdmin();
 		app.setVisible(true);
 	}
-	*/
+	
 }
