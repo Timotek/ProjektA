@@ -15,16 +15,18 @@ public class User {
 	private String firstName;
 	private String name;
 	private String email;
-	private String userName;							
+	private String userName;
+	private String birthday;
 	private String pw;									
 	private String filename;
 	FileManager fm = new FileManager();
 
 	//Übergabe der Userdaten im Konstruktor
-	public User(String firstName, String name, String email, String userName, String pw){
+	public User(String firstName, String name, String birthday, String email, String userName, String pw){
 	  //this.ID = ID;
 		this.firstName = firstName;
 		this.name = name;
+		this.birthday = birthday;
 		this.email = email;
 		this.userName = userName;
 		this.pw = pw;
@@ -41,7 +43,7 @@ public class User {
 		else {
 			fm.createFile(filename + ".txt");
 			System.out.println("Datei " + filename + ".txt erstellt");
-			sendUserData(firstName, name, email, userName, pw);
+			sendUserData(firstName, name, birthday, email, userName, pw);
 		}
 	}
 	
@@ -65,7 +67,7 @@ public class User {
 	 }
 	
 
-	public void sendUserData(Object object1, Object object2, Object object3, Object object4, Object object5){
+	public void sendUserData(Object object1, Object object2, Object object3, Object object4, Object object5, Object object6){
 
 		try (final PrintWriter userWriter = new PrintWriter(FileManager.file);) {
 		//	userWriter.println(ID);
@@ -74,6 +76,7 @@ public class User {
 			userWriter.println(object3);
 			userWriter.println(object4);
 			userWriter.println(object5);
+			userWriter.println(object6);
 			userWriter.close();
 		}
 		catch (FileNotFoundException e) {

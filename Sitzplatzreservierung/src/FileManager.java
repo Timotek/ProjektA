@@ -88,7 +88,7 @@ public class FileManager {
 	}
 	
 	
-	//searchFile durchsucht Projekthauptverzeichnis nach bestimmter Datei
+	//searchFile durchsucht Userordner im Projekthauptverzeichnis nach bestimmter Datei
 	//hier: durchsucht, ob ein Username bei Registrierung schon vorhanden ist
 	public boolean searchFile(String Filename){
 		filename = "User\\"+Filename;
