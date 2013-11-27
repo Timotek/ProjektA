@@ -41,8 +41,14 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 		add(userField);
 		add(passLabel);
 		add(passField);
-		loginButton.addActionListener (new UserNameActionListener (userField, passField));
+		loginButton.addActionListener (new UserNameActionListener (userField, passField));	
 		add(loginButton);
+		registerButton.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+                Register register = new Register();
+                register.setVisible(true);
+            }
+        });
 		add(registerButton);
 	}
 
@@ -68,6 +74,8 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 			System.out.println(pw);
 			saveUserData();
 			compareUserData();	
+			ScheduleUser userSchedule = new ScheduleUser();
+			userSchedule.setVisible(true);
 			}
 		}
 
