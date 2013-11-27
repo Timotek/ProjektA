@@ -51,7 +51,8 @@ import javax.swing.JDialog;
 
 		public Register(){
 			super("Registrierung");
-			setDefaultCloseOperation(EXIT_ON_CLOSE);
+			//Auskommentiert, damit sich nur das Register Fenster, jedoch nicht das gesamte Programm schlieﬂt.
+			//setDefaultCloseOperation(EXIT_ON_CLOSE);
 			setSize(600,600);
 			setLayout(new BorderLayout());
 
@@ -142,6 +143,12 @@ import javax.swing.JDialog;
 				System.out.println (pw2);
 				if(comparePassword()==true && checkIfFilledIn()==true){
 					sendData();
+					//Fenster schlieﬂen.
+					finishedDialog();
+					dispose();
+					
+				
+					
 				}
 			}
 		}
@@ -191,6 +198,27 @@ import javax.swing.JDialog;
 		    }
 		    }); 		
 		}
+		
+		//Dialog wenn Registrierung erfolgreich war.
+		public void finishedDialog(){
+			final JDialog filledInDialog = new JDialog();
+			filledInDialog.setTitle("Registrierung erfolgreich!");
+			filledInDialog.setSize(400,100);
+			filledInDialog.setModal(false);
+			//filledInDialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+			filledInDialog.setLayout(new GridLayout(2,1));
+			filledInDialog.add(new JLabel("Sie haben sich erfolgreich registriert!"));    
+		    JButton closeButton = new JButton("schlieﬂen");
+		    filledInDialog.add(closeButton);       
+		    filledInDialog.setVisible(true);
+		    closeButton.addActionListener(new ActionListener(){
+		    
+		    public void actionPerformed(ActionEvent e) {
+		    	filledInDialog.dispose();	
+		    }
+		    }); 		
+		}
+		
 		
 		
 		//JDialog Fenster falls das Passwort falsch ist
