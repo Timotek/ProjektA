@@ -1,7 +1,9 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -13,6 +15,9 @@ public class FileManager {
 	String line;
 	FileReader fileReader;
 	BufferedReader bufferedReader;
+	
+	PrintWriter printWriter = null;
+	BufferedWriter bufferedWriter = null;
 	
 	public FileManager(){
 		/*
@@ -42,7 +47,23 @@ public class FileManager {
 			e.printStackTrace();
 		}
 	}
+	
+	//zweit chooseFile methode fuer writeFile
+	public void chooseFileWrite(String filename){
+		
+		this.filename = filename;
+		file = new File(filename);
+		
+		try {
 
+			printWriter = new PrintWriter(file);
+			bufferedWriter = new BufferedWriter(printWriter);
+				
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 	public String readHall(){
@@ -53,9 +74,7 @@ public class FileManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//System.out.println(line);
-
-	    //int stringToInt = Integer.parseInt(line);
+		
 		return line;
 	}
 	
@@ -68,10 +87,20 @@ public class FileManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//System.out.println(line);
 
 	    int stringToInt = Integer.parseInt(line);
 		return stringToInt;
+	}
+	
+	//writeFile schreibt mit einem buffered Writer in Textdateien, 
+	//die vorher ueber chooseFileWrite ausgewaehlt werden
+	public void writeFile(String value) throws IOException{
+		
+		String writerValue = value;
+		bufferedWriter.write(value);
+	    bufferedWriter.write(System.getProperty("line.separator"));
+		bufferedWriter.flush();
+	
 	}
 	
 

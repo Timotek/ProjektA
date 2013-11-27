@@ -1,6 +1,7 @@
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -116,6 +117,8 @@ public class HallUser extends JFrame{
 			// TODO Auto-generated method stub
 			
 			JCheckBox tempBox;
+			fm.chooseFileWrite("seats2.txt");
+
 			
 			for(int i = 1; i <= 8 ; i++){
 				
@@ -127,12 +130,24 @@ public class HallUser extends JFrame{
 					
 					if(tempBox.isSelected() == true){
 						
-						fm.chooseFile("seats.txt");
-
+						try {
+							fm.writeFile("true");
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						
-						System.out.println("DIKKA");
+						//System.out.println("DIKKA");
 					} else {
-						System.out.println("LALA");
+						
+						try {
+							fm.writeFile("false");
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+						//System.out.println("LALA");
 					}
 				}
 			}
