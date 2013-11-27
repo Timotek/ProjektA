@@ -67,7 +67,7 @@ public class User {
 	 }
 	
 
-	public void sendUserData(Object object1, Object object2, Object object3, Object object4, Object object5){
+	public void sendUserData(Object object1, Object object2, Object object3, Object object4, Object object5, Object object6){
 
 		try (final PrintWriter userWriter = new PrintWriter(FileManager.file);) {
 		//	userWriter.println(ID);
@@ -76,6 +76,7 @@ public class User {
 			userWriter.println(object3);
 			userWriter.println(object4);
 			userWriter.println(object5);
+			userWriter.println(object6);
 			userWriter.close();
 		}
 		catch (FileNotFoundException e) {
