@@ -39,6 +39,11 @@ public class ScheduleUser extends JFrame{
 		String movieTitle2;
 		String movieTitle3;
 		
+		//Anzahl der Datums pro Saal
+		int saal1 = 0;
+		int saal2 = 0;
+		int saal3 = 0;
+		
 		JLabel title = new JLabel("Bitte waehlen Sie einen Film:");
 		titlePanel.add(title);
 
@@ -48,12 +53,16 @@ public class ScheduleUser extends JFrame{
 		JLabel hall1Label = new JLabel("Saal 1: " + movieTitle1);
 		hall1Panel.add(hall1Label);
 		JComboBox<String> hall1comboBox = new JComboBox<String>();
+		
 		while(fm.readHall().equals("DATUM")){
 			hall1comboBox.addItem(fm.readHall());
+			saal1 ++;
 		}
 		hall1Panel.add(hall1comboBox);
 		hall1Panel.add(hall1ok);
-
+		//nur testweise
+		System.out.println(saal1);
+		
 		/////////////////////////////////////////
 		
 		fm.chooseFile("hall2.txt");
@@ -64,9 +73,14 @@ public class ScheduleUser extends JFrame{
 		JComboBox<String> hall2comboBox = new JComboBox<String>();
 		while(fm.readHall().equals("DATUM")){
 			hall2comboBox.addItem(fm.readHall());
+			saal2 ++;
 		}
 		hall2Panel.add(hall2comboBox);
 		hall2Panel.add(hall2ok);
+		//nur testweise
+
+		System.out.println(saal2);
+
 
 		
 		//////////////////////////////////////////
@@ -79,9 +93,14 @@ public class ScheduleUser extends JFrame{
 		JComboBox<String> hall3comboBox = new JComboBox<String>();
 		while(fm.readHall().equals("DATUM")){
 			hall3comboBox.addItem(fm.readHall());
+			saal3++;
 		}
 		hall3Panel.add(hall3comboBox);
 		hall3Panel.add(hall3ok);
+		//nur testweise
+
+		System.out.println(saal3);
+
 
 
 		

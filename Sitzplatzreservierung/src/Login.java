@@ -75,8 +75,18 @@ FileManager fileM = new FileManager(); // Filemanager neues Objekt
 			System.out.println(pw);
 			saveUserData();
 			compareUserData();	
+			
+			if(userName.equals("admin")){
+				System.out.println("DU bist admin");
+				
+				ScheduleAdmin adminSchedule = new ScheduleAdmin();
+				adminSchedule.setVisible(true);
+				
+			}
+			else{
 			ScheduleUser userSchedule = new ScheduleUser();
 			userSchedule.setVisible(true);
+			}
 			}
 		}
 
