@@ -18,7 +18,7 @@ public class HallUser extends JFrame{
 	//gespeichert werden
 	public static Map<String,JCheckBox> seatList = new HashMap<>();
 	public static Map<String,JPanel> rowList = new HashMap<>();
-	public static Map<Integer,Boolean> idList = new HashMap<>();
+	public static Map<String,Boolean> idList = new HashMap<>();
 
 	
 	//Die zwei Buttons...
@@ -29,12 +29,12 @@ public class HallUser extends JFrame{
 	FileManager fm = new FileManager();
 
 	//Laufvariable fuer die idList-HashMap
-	int seatID = 0;
-
+	String seatID = "0";
 	
-
+	//Instanzvariable für die zu waehlende Textdatei mit den Sitzen
+	String show;
 	
-	public HallUser(){
+	public HallUser(String show){
 		
 		//Standard-Kontruktor...
 		super("Hall Overview");
@@ -42,12 +42,13 @@ public class HallUser extends JFrame{
 		setSize(600,600);
 		setLayout(new GridLayout(9,1));
 		
+		this.show = show;
+		
 		//Datei waehlen 
 		fm.chooseFile("seats.txt");
 
 		save.addActionListener(new SaveListener());
 
-		
 		//Erste For-Schleife: Hier werden die Reihen erstellt,
 		//dann in die HashMap geladen und dem JFrame hinzugefuegt
 		for(int i = 1; i <= 9 ; i++){
@@ -70,7 +71,6 @@ public class HallUser extends JFrame{
 				
 			}
 			
-			
 			//Verschachtelte For-Schleife: Hier werden die Sitze 
 			//erstellt, in die HashMap geladen und dem JPanel hinzugefuegt
 			for(int j = k; j <= 13; j++){
@@ -87,12 +87,19 @@ public class HallUser extends JFrame{
 				JCheckBox checkBox = seatList.get(seatString);
 				
 				//idList-Eintrag erstellen und Laufvariable hochzaehlen
+				String valueI = String.valueOf(i);
+				String valueJ = String.valueOf(j);
+			
+				seatID = valueI + valueJ;
 				idList.put(seatID, true);
-				seatID ++;
+				//seatID ++;
 				
 				//Ueberpruefen ob Sitz verfuegbar mittel methode aus dem FileManager
-				int isGrey = fm.readFile();
-				if(isGrey == seatID){
+				String isGrey = fm.readFile();
+				
+				System.out.println("seatid=" + seatID + "   isgrey=" + isGrey);
+				
+				if(isGrey.equals(seatID)){
 					checkBox.setEnabled(true);
 					//System.out.println("passt");
 				} else {
@@ -108,7 +115,6 @@ public class HallUser extends JFrame{
 		}
 	}
 	
-	
 	//Dieser Action Listener uberpruft, welch Checkboxen ausgewählt sind
 	public class SaveListener implements ActionListener{
 
@@ -117,21 +123,19 @@ public class HallUser extends JFrame{
 			// TODO Auto-generated method stub
 			
 			JCheckBox tempBox;
-			fm.chooseFileWrite("seats2.txt");
+			fm.chooseFileWrite(show + "txt");
+			System.out.println(show + ".txt");
 
-			
 			for(int i = 1; i <= 8 ; i++){
 				
 				for(int j = 1; j <= 13; j++){
 					
-					//System.out.println(seatList.get("seat"+i+j));
-
 					tempBox = seatList.get("seat"+i+j);
 					
-					if(tempBox.isSelected() == true){
+					if(tempBox.isSelected() == true || tempBox.isEnabled() == false){
 						
 						try {
-							fm.writeFile("true");
+							fm.writeFile("00");
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -140,26 +144,26 @@ public class HallUser extends JFrame{
 						//System.out.println("DIKKA");
 					} else {
 						
+						String valueI = String.valueOf(i);
+						String valueJ = String.valueOf(j);
+						String valueIJ = valueI + valueJ;
+						
 						try {
-							fm.writeFile("false");
+							fm.writeFile(valueIJ);
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-						
-						//System.out.println("LALA");
 					}
 				}
 			}
 		}
 	}
 	
-	
-	
 	public static void main(String [] args){
 		
-		HallUser app = new HallUser();
+		HallUser app = new HallUser("seats");
 		app.setVisible(true);
-
+		
 	}
 }

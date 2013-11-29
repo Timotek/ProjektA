@@ -79,7 +79,7 @@ public class FileManager {
 	}
 	
 
-	public int readFile(){
+	public String readFile(){
 
 		try {
 			line = bufferedReader.readLine();
@@ -88,8 +88,9 @@ public class FileManager {
 			e.printStackTrace();
 		}
 
-	    int stringToInt = Integer.parseInt(line);
-		return stringToInt;
+	    //int stringToInt = Integer.parseInt(line);
+		//return stringToInt;
+		return line;
 	}
 	
 	//writeFile schreibt mit einem buffered Writer in Textdateien, 
