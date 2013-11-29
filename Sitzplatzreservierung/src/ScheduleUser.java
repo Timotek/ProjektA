@@ -24,6 +24,8 @@ public class ScheduleUser extends JFrame{
 	JComboBox<String> hall2comboBox;
 	JComboBox<String> hall3comboBox;
 	
+	JButton zurueck = new JButton("Zurück");
+	
 	public ScheduleUser(){
 		
 		super("Schedule");
@@ -48,6 +50,12 @@ public class ScheduleUser extends JFrame{
 		add(hall1Panel);
 		add(hall2Panel);
 		add(hall3Panel);
+		add(zurueck);
+		zurueck.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+           dispose();
+            }
+        });
 		
 		//Anzahl der Datums pro Saal
 		int saal1 = 0;
