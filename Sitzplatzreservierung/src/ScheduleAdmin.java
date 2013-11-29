@@ -72,8 +72,43 @@ public class ScheduleAdmin extends JFrame{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+						
+				fm.chooseFileWrite(saal1txt);
+
+				
+
+				
+				for(int i = 1; i <= 8 ; i++){
+					
+					for(int j = 1; j <= 13; j++){
+						
+
+						String valueI = String.valueOf(i);
+						String valueJ = String.valueOf(j);
+						String valueIJ = valueI + valueJ;
 							
+						try {
+							fm.writeFile(valueIJ);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}
+				
+				
+				
+				
+					
+				
+				
+				
 			}
+	
+				
+				
+				
+			
         });		
 		
 		JButton hall2saveDate = new JButton("Datum speichern");
@@ -92,10 +127,41 @@ public class ScheduleAdmin extends JFrame{
 					e1.printStackTrace();
 				}
 					
+				fm.chooseFileWrite(saal2txt);
+
+				
+
+				
+				for(int i = 1; i <= 8 ; i++){
+					
+					for(int j = 1; j <= 13; j++){
+						
+
+						String valueI = String.valueOf(i);
+						String valueJ = String.valueOf(j);
+						String valueIJ = valueI + valueJ;
+							
+						try {
+							fm.writeFile(valueIJ);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}
+				
+				
+				
+				
+					
 				
 				
 				
 			}
+	
+				
+				
+			
         });	
 		
 		JButton hall3saveDate = new JButton("Datum speichern");
