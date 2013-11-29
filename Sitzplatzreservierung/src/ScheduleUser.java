@@ -1,6 +1,8 @@
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -12,7 +14,14 @@ import javax.swing.JPanel;
 public class ScheduleUser extends JFrame{
 	
 	FileManager fm = new FileManager();
-
+	
+	String movieTitle1;
+	String movieTitle2;
+	String movieTitle3;
+	
+	JComboBox<String> hall1comboBox;
+	JComboBox<String> hall2comboBox;
+	JComboBox<String> hall3comboBox;
 	
 	public ScheduleUser(){
 		
@@ -30,14 +39,14 @@ public class ScheduleUser extends JFrame{
 		JButton hall2ok = new JButton("Auswaehlen");
 		JButton hall3ok = new JButton("Auswaehlen");
 		
+		hall1ok.addActionListener(new hall1ChooseListener());
+		hall2ok.addActionListener(new hall2ChooseListener());
+		hall3ok.addActionListener(new hall3ChooseListener());
+		
 		add(titlePanel);
 		add(hall1Panel);
 		add(hall2Panel);
 		add(hall3Panel);
-		
-		String movieTitle1;
-		String movieTitle2;
-		String movieTitle3;
 		
 		//Anzahl der Datums pro Saal
 		int saal1 = 0;
@@ -52,7 +61,7 @@ public class ScheduleUser extends JFrame{
 		movieTitle1 = fm.readHall();
 		JLabel hall1Label = new JLabel("Saal 1: " + movieTitle1);
 		hall1Panel.add(hall1Label);
-		JComboBox<String> hall1comboBox = new JComboBox<String>();
+		hall1comboBox = new JComboBox<String>();
 		
 		while(fm.readHall().equals("DATUM")){
 			hall1comboBox.addItem(fm.readHall());
@@ -70,7 +79,7 @@ public class ScheduleUser extends JFrame{
 		movieTitle2 = fm.readHall();
 		JLabel hall2Label = new JLabel("Saal 2: " + movieTitle2);
 		hall2Panel.add(hall2Label);
-		JComboBox<String> hall2comboBox = new JComboBox<String>();
+		hall2comboBox = new JComboBox<String>();
 		while(fm.readHall().equals("DATUM")){
 			hall2comboBox.addItem(fm.readHall());
 			saal2 ++;
@@ -90,7 +99,7 @@ public class ScheduleUser extends JFrame{
 		movieTitle3 = fm.readHall();
 		JLabel hall3Label = new JLabel("Saal 3: " + movieTitle3);
 		hall3Panel.add(hall3Label);
-		JComboBox<String> hall3comboBox = new JComboBox<String>();
+		hall3comboBox = new JComboBox<String>();
 		while(fm.readHall().equals("DATUM")){
 			hall3comboBox.addItem(fm.readHall());
 			saal3++;
@@ -99,17 +108,34 @@ public class ScheduleUser extends JFrame{
 		hall3Panel.add(hall3ok);
 		//nur testweise
 
-		System.out.println(saal3);
-
-
-
-		
-		
-		
+		System.out.println(saal3);		
 		
 		
 	}
 	
+	public class hall1ChooseListener implements ActionListener{
+	
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			System.out.println("Saal1, Film: " + hall1comboBox.getSelectedIndex());
+		}
+	}
+	public class hall2ChooseListener implements ActionListener{
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			System.out.println("Saal2, Film: " + hall2comboBox.getSelectedIndex());
+		}
+	}public class hall3ChooseListener implements ActionListener{
+	
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			System.out.println("Saal3, Film: " + hall3comboBox.getSelectedIndex());
+		}
+	}
 	
 	public static void main(String[]args){
 		
