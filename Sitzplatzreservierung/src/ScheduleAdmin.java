@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.swing.JButton;
@@ -63,11 +64,9 @@ public class ScheduleAdmin extends JFrame{
 
 				saal1zaehler ++;
 				String saal1txt = "seats" + "saal1" + "-" + saal1zaehler +".txt";
-				File file1 = new File("belegt" + saal1txt);
 				File file = new File(saal1txt);
 				try {
 					final PrintWriter fileWriter = new PrintWriter(file);
-					final PrintWriter fileWriter1 = new PrintWriter(file1);
 
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
@@ -83,11 +82,9 @@ public class ScheduleAdmin extends JFrame{
 
 				saal2zaehler ++;
 				String saal2txt = "seats" + "saal2" + "-" + saal2zaehler +".txt";
-				File file1 = new File("belegt" + saal2txt);
 				File file = new File(saal2txt);
 				try {
 				final PrintWriter fileWriter = new PrintWriter(file);
-				final PrintWriter fileWriter1 = new PrintWriter(file1);
 
 
 				} catch (FileNotFoundException e1) {
@@ -107,15 +104,42 @@ public class ScheduleAdmin extends JFrame{
 
 				saal3zaehler ++;
 				String saal3txt = "seats" + "saal3" + "-" + saal3zaehler +".txt";
-				File file1 = new File("belegt" + saal3txt);
+				
 				File file = new File(saal3txt);
 				try {
 					final PrintWriter fileWriter = new PrintWriter(file);
-					final PrintWriter fileWriter1 = new PrintWriter(file1);
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				
+				
+				fm.chooseFileWrite(saal3txt);
+
+				
+
+				
+				for(int i = 1; i <= 8 ; i++){
+					
+					for(int j = 1; j <= 13; j++){
+						
+
+						String valueI = String.valueOf(i);
+						String valueJ = String.valueOf(j);
+						String valueIJ = valueI + valueJ;
+							
+						try {
+							fm.writeFile(valueIJ);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}
+				
+				
+				
+				
 					
 				
 				
