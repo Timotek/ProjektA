@@ -154,7 +154,6 @@ import javax.swing.JDialog;
 				if(comparePassword()==true && checkIfFilledIn()==true){
 					sendData();
 					//Fenster schlieﬂen.
-					finishedDialog();
 					dispose();
 					
 				
@@ -210,7 +209,7 @@ import javax.swing.JDialog;
 		}
 		
 		//Dialog wenn Registrierung erfolgreich war.
-		public void finishedDialog(){
+		public static void finishedDialog(){
 			final JDialog filledInDialog = new JDialog();
 			filledInDialog.setTitle("Registrierung erfolgreich!");
 			filledInDialog.setSize(400,100);
