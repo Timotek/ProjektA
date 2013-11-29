@@ -2,6 +2,10 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -15,6 +19,10 @@ public class ScheduleAdmin extends JFrame{
 	FileManager fm = new FileManager();
 	JComboBox<String> hall1comboBox = new JComboBox<String>();
 
+	int saal1zaehler = 0;
+	int saal2zaehler = 0;
+	int saal3zaehler = 0;
+	
 	
 	public class Hall1DeleteListener implements ActionListener{
 
@@ -48,9 +56,162 @@ public class ScheduleAdmin extends JFrame{
 		JButton hall2delete = new JButton("Loeschen");
 		JButton hall3delete = new JButton("Loeschen");
 		
+		
+		
 		JButton hall1saveDate = new JButton("Datum speichern");
+		hall1saveDate.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+
+				saal1zaehler ++;
+				String saal1txt = "seats" + "saal1" + "-" + saal1zaehler +".txt";
+				File file = new File(saal1txt);
+				try {
+					final PrintWriter fileWriter = new PrintWriter(file);
+
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+						
+				fm.chooseFileWrite(saal1txt);
+
+				
+
+				
+				for(int i = 1; i <= 8 ; i++){
+					
+					for(int j = 1; j <= 13; j++){
+						
+
+						String valueI = String.valueOf(i);
+						String valueJ = String.valueOf(j);
+						String valueIJ = valueI + valueJ;
+							
+						try {
+							fm.writeFile(valueIJ);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}
+				
+				
+				
+				
+					
+				
+				
+				
+			}
+	
+				
+				
+				
+			
+        });		
+		
 		JButton hall2saveDate = new JButton("Datum speichern");
+		hall2saveDate.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+
+				saal2zaehler ++;
+				String saal2txt = "seats" + "saal2" + "-" + saal2zaehler +".txt";
+				File file = new File(saal2txt);
+				try {
+				final PrintWriter fileWriter = new PrintWriter(file);
+
+
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+					
+				fm.chooseFileWrite(saal2txt);
+
+				
+
+				
+				for(int i = 1; i <= 8 ; i++){
+					
+					for(int j = 1; j <= 13; j++){
+						
+
+						String valueI = String.valueOf(i);
+						String valueJ = String.valueOf(j);
+						String valueIJ = valueI + valueJ;
+							
+						try {
+							fm.writeFile(valueIJ);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}
+				
+				
+				
+				
+					
+				
+				
+				
+			}
+	
+				
+				
+			
+        });	
+		
 		JButton hall3saveDate = new JButton("Datum speichern");
+		hall3saveDate.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+
+				saal3zaehler ++;
+				String saal3txt = "seats" + "saal3" + "-" + saal3zaehler +".txt";
+				
+				File file = new File(saal3txt);
+				try {
+					final PrintWriter fileWriter = new PrintWriter(file);
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
+				fm.chooseFileWrite(saal3txt);
+
+				
+
+				
+				for(int i = 1; i <= 8 ; i++){
+					
+					for(int j = 1; j <= 13; j++){
+						
+
+						String valueI = String.valueOf(i);
+						String valueJ = String.valueOf(j);
+						String valueIJ = valueI + valueJ;
+							
+						try {
+							fm.writeFile(valueIJ);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+				}
+				
+				
+				
+				
+					
+				
+				
+				
+			}
+        });	
 		
 		JButton hall1saveTitle = new JButton("Titel speichern");
 		JButton hall2saveTitle = new JButton("Titel speichern");
@@ -88,6 +249,8 @@ public class ScheduleAdmin extends JFrame{
 		//JComboBox<String> hall1comboBox = new JComboBox<String>();
 		while(fm.readHall().equals("DATUM")){
 			hall1comboBox.addItem(fm.readHall());
+			
+			
 		}
 		hall1Panel.add(hall1comboBox);
 		hall1Panel.add(hall1delete);
@@ -107,6 +270,7 @@ public class ScheduleAdmin extends JFrame{
 		JComboBox<String> hall2comboBox = new JComboBox<String>();
 		while(fm.readHall().equals("DATUM")){
 			hall2comboBox.addItem(fm.readHall());
+			
 		}
 		hall2Panel.add(hall2comboBox);
 		hall2Panel.add(hall2delete);
