@@ -45,7 +45,7 @@ public class HallUser extends JFrame{
 		this.show = show;
 		
 		//Datei waehlen 
-		fm.chooseFile("seats.txt");
+		fm.chooseFile(show);
 
 		save.addActionListener(new SaveListener());
 
@@ -123,8 +123,8 @@ public class HallUser extends JFrame{
 			// TODO Auto-generated method stub
 			
 			JCheckBox tempBox;
-			fm.chooseFileWrite(show + "txt");
-			System.out.println(show + ".txt");
+			fm.chooseFileWrite(show);
+			System.out.println(show);
 
 			for(int i = 1; i <= 8 ; i++){
 				
