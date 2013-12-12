@@ -1,4 +1,3 @@
-
 public class UploadDownload {
 	
 	//Ftp-Server initialisieren
