@@ -45,7 +45,7 @@ public class HallUser extends JFrame{
 		this.show = show;
 		
 		//Datei waehlen 
-		fm.chooseFile("seats.txt");
+		fm.chooseFile(show);
 
 		save.addActionListener(new SaveListener());
 
@@ -68,6 +68,11 @@ public class HallUser extends JFrame{
 				
 				panel.add(save);
 				panel.add(discard);
+				discard.addActionListener(new java.awt.event.ActionListener() {
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+		           dispose();
+		            }
+		        });
 				
 			}
 			
@@ -123,8 +128,8 @@ public class HallUser extends JFrame{
 			// TODO Auto-generated method stub
 			
 			JCheckBox tempBox;
-			fm.chooseFileWrite(show + "txt");
-			System.out.println(show + ".txt");
+			fm.chooseFileWrite(show);
+			System.out.println(show);
 
 			for(int i = 1; i <= 8 ; i++){
 				
@@ -160,10 +165,10 @@ public class HallUser extends JFrame{
 		}
 	}
 	
-	public static void main(String [] args){
+	//public static void main(String [] args){
 		
-		HallUser app = new HallUser("seats");
-		app.setVisible(true);
+		//HallUser app = new HallUser("seats");
+	//	app.setVisible(true);
 		
-	}
+	//}
 }

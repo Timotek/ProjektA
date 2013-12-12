@@ -19,9 +19,9 @@ public class ScheduleAdmin extends JFrame{
 	FileManager fm = new FileManager();
 	JComboBox<String> hall1comboBox = new JComboBox<String>();
 
-	int saal1zaehler = 0;
-	int saal2zaehler = 0;
-	int saal3zaehler = 0;
+	int saal1zaehler = -1;
+	int saal2zaehler = -1;
+	int saal3zaehler = -1;
 	
 	JTextField hall1changeTitle;
 	JTextField hall2changeTitle;

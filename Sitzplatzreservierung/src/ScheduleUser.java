@@ -15,6 +15,7 @@ public class ScheduleUser extends JFrame{
 	
 	FileManager fm = new FileManager();
 	
+	String txtName;
 	String movieTitle1;
 	String movieTitle2;
 	String movieTitle3;
@@ -22,6 +23,8 @@ public class ScheduleUser extends JFrame{
 	JComboBox<String> hall1comboBox;
 	JComboBox<String> hall2comboBox;
 	JComboBox<String> hall3comboBox;
+	
+	JButton zurueck = new JButton("Zurück");
 	
 	public ScheduleUser(){
 		
@@ -47,6 +50,12 @@ public class ScheduleUser extends JFrame{
 		add(hall1Panel);
 		add(hall2Panel);
 		add(hall3Panel);
+		add(zurueck);
+		zurueck.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+           dispose();
+            }
+        });
 		
 		//Anzahl der Datums pro Saal
 		int saal1 = 0;
@@ -118,7 +127,9 @@ public class ScheduleUser extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			System.out.println("Saal1, Film: " + hall1comboBox.getSelectedIndex());
+			txtName = "seatssaal" + 1 +"-"+ hall1comboBox.getSelectedIndex()  + ".txt";
+			HallUser UserHall = new HallUser(txtName);
+			UserHall.setVisible(true);
 		}
 	}
 	public class hall2ChooseListener implements ActionListener{
@@ -126,14 +137,16 @@ public class ScheduleUser extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			System.out.println("Saal2, Film: " + hall2comboBox.getSelectedIndex());
+			txtName = "seatssaal" + 2 + "-"+ hall2comboBox.getSelectedIndex()  + ".txt";
+
 		}
 	}public class hall3ChooseListener implements ActionListener{
 	
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			System.out.println("Saal3, Film: " + hall3comboBox.getSelectedIndex());
+			txtName = "seatssaal" + 3 +"-"+ hall3comboBox.getSelectedIndex()  + ".txt";
+			System.out.println(txtName);
 		}
 	}
 	
