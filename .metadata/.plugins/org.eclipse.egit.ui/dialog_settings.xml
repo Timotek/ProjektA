@@ -14,22 +14,22 @@
 	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
 		<item value="1222" key="DIALOG_WIDTH"/>
 		<item value="130" key="DIALOG_Y_ORIGIN"/>
-		<item value="0" key="DIALOG_X_ORIGIN"/>
 		<item value="389" key="DIALOG_HEIGHT"/>
+		<item value="0" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.fetch.FetchResultDialog.dialogBounds">
 		<item value="600" key="DIALOG_WIDTH"/>
 		<item value="96" key="DIALOG_Y_ORIGIN"/>
-		<item value="440" key="DIALOG_HEIGHT"/>
 		<item value="311" key="DIALOG_X_ORIGIN"/>
+		<item value="440" key="DIALOG_HEIGHT"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
 		<item value="650" key="DIALOG_WIDTH"/>
 		<item value="140" key="DIALOG_Y_ORIGIN"/>
-		<item value="440" key="DIALOG_HEIGHT"/>
 		<item value="165" key="DIALOG_X_ORIGIN"/>
+		<item value="440" key="DIALOG_HEIGHT"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>

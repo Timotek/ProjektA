@@ -1163,3 +1163,57 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/timol
 
 !ENTRY org.eclipse.core.net 1 0 2013-11-27 11:26:48.178
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2013-12-12 20:26:55.537 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.7.0_10
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=de_DE
+Framework arguments:  -keyring /Users/timoluttmann/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/timoluttmann/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-12-12 20:32:33.695
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.egit.ui 4 0 2013-12-12 20:33:46.453
+!MESSAGE Checkout conflict with files: 
+Sitzplatzreservierung/src/ScheduleAdmin.java
+!STACK 0
+org.eclipse.jgit.api.errors.CheckoutConflictException: Checkout conflict with files: 
+Sitzplatzreservierung/src/ScheduleAdmin.java
+	at org.eclipse.jgit.api.MergeCommand.call(MergeCommand.java:394)
+	at org.eclipse.jgit.api.PullCommand.call(PullCommand.java:304)
+	at org.eclipse.egit.core.op.PullOperation$1.run(PullOperation.java:90)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2326)
+	at org.eclipse.egit.core.op.PullOperation.execute(PullOperation.java:121)
+	at org.eclipse.egit.ui.internal.pull.PullOperationUI.execute(PullOperationUI.java:115)
+	at org.eclipse.egit.ui.internal.pull.PullOperationUI$1.run(PullOperationUI.java:90)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.eclipse.jgit.errors.CheckoutConflictException: Checkout conflict with files: 
+Sitzplatzreservierung/src/ScheduleAdmin.java
+	at org.eclipse.jgit.dircache.DirCacheCheckout.doCheckout(DirCacheCheckout.java:411)
+	at org.eclipse.jgit.dircache.DirCacheCheckout.checkout(DirCacheCheckout.java:391)
+	at org.eclipse.jgit.api.MergeCommand.call(MergeCommand.java:280)
+	... 8 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2013-12-12 20:35:19.667
+!MESSAGE Checkout conflict with files: 
+Sitzplatzreservierung/src/ScheduleAdmin.java
+!STACK 0
+org.eclipse.jgit.api.errors.CheckoutConflictException: Checkout conflict with files: 
+Sitzplatzreservierung/src/ScheduleAdmin.java
+	at org.eclipse.jgit.api.MergeCommand.call(MergeCommand.java:394)
+	at org.eclipse.jgit.api.PullCommand.call(PullCommand.java:304)
+	at org.eclipse.egit.core.op.PullOperation$1.run(PullOperation.java:90)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2326)
+	at org.eclipse.egit.core.op.PullOperation.execute(PullOperation.java:121)
+	at org.eclipse.egit.ui.internal.pull.PullOperationUI.execute(PullOperationUI.java:115)
+	at org.eclipse.egit.ui.internal.pull.PullOperationUI$1.run(PullOperationUI.java:90)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.eclipse.jgit.errors.CheckoutConflictException: Checkout conflict with files: 
+Sitzplatzreservierung/src/ScheduleAdmin.java
+	at org.eclipse.jgit.dircache.DirCacheCheckout.doCheckout(DirCacheCheckout.java:411)
+	at org.eclipse.jgit.dircache.DirCacheCheckout.checkout(DirCacheCheckout.java:391)
+	at org.eclipse.jgit.api.MergeCommand.call(MergeCommand.java:280)
+	... 8 more
