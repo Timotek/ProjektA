@@ -104,6 +104,18 @@ public class FileManager {
 	
 	}
 	
+	
+	
+	public void writeFileHall(String value) throws IOException{
+		
+		String writerValue = value;
+		bufferedWriter.write(value);
+	    bufferedWriter.write(System.getProperty("line.separator"));
+		bufferedWriter.flush();
+	
+	}
+	
+	
 
 	//createFile-Methode erstellt die User-Dateien im User-Ordner des Hauptverzeichnisses
 	public void createFile(String filename){
