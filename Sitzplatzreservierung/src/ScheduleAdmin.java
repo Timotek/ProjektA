@@ -23,6 +23,10 @@ public class ScheduleAdmin extends JFrame{
 	int saal2zaehler = 0;
 	int saal3zaehler = 0;
 	
+	JTextField hall1changeTitle;
+	JTextField hall2changeTitle;
+	JTextField hall3changeTitle;
+	
 	
 	public class Hall1DeleteListener implements ActionListener{
 
@@ -217,9 +221,11 @@ public class ScheduleAdmin extends JFrame{
 		JButton hall2saveTitle = new JButton("Titel speichern");
 		JButton hall3saveTitle = new JButton("Titel speichern");
 		
-		JTextField hall1changeTitle = new JTextField("Hier Filmtitel eingeben");
-		JTextField hall2changeTitle = new JTextField("Hier Filmtitel eingeben");
-		JTextField hall3changeTitle = new JTextField("Hier Filmtitel eingeben");
+		hall1saveTitle.addActionListener(new Hall1TitleActionListener());
+		
+		hall1changeTitle = new JTextField("Hier Filmtitel eingeben");
+		hall2changeTitle = new JTextField("Hier Filmtitel eingeben");
+		hall3changeTitle = new JTextField("Hier Filmtitel eingeben");
 
 		JTextField hall1newDate = new JTextField("Hier neues Datum eingeben");
 		JTextField hall2newDate = new JTextField("Hier neues Datum eingeben");
@@ -298,6 +304,25 @@ public class ScheduleAdmin extends JFrame{
 		hall3Panel.add(hall3changeTitle);
 		hall3Panel.add(hall3saveTitle);
 		
+	}
+	
+	
+	
+	public class Hall1TitleActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+			fm.chooseFileWrite("hall1.txt");
+			System.out.println(hall1changeTitle.getText());			
+			try {
+				fm.writeFileHall(hall1changeTitle.getText());
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 	}
 	
 	
